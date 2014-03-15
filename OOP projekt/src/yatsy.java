@@ -7,6 +7,7 @@ public class yatsy {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("töötab!");
+		System.out.println("Kui see tuleb läbi, siis oskan teha !");
 
 	}
 
