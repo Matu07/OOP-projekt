@@ -1,4 +1,6 @@
 
+
+
 public class Numbrid {
 	
 	 static void Number1(){
@@ -7,7 +9,6 @@ public class Numbrid {
 		System.out.println("| . |");
 		System.out.println("|   |");
 		System.out.println(" ¯¯¯");
-		return;
 	}
 	 
 	 static void Number2(){
@@ -16,7 +17,6 @@ public class Numbrid {
 			System.out.println("|   |");
 			System.out.println("|  .|");
 			System.out.println(" ¯¯¯");
-			return;
 		}
 	 
 	 static void Number3(){
@@ -25,7 +25,6 @@ public class Numbrid {
 			System.out.println("| . |");
 			System.out.println("|  .|");
 			System.out.println(" ¯¯¯");
-			return;
 		}
 	 
 	 static void Number4(){
@@ -34,7 +33,6 @@ public class Numbrid {
 			System.out.println("|   |");
 			System.out.println("|. .|");
 			System.out.println(" ¯¯¯");
-			return;
 		}
 	 
 	 static void Number5(){
@@ -43,7 +41,6 @@ public class Numbrid {
 			System.out.println("| . |");
 			System.out.println("|. .|");
 			System.out.println(" ¯¯¯");
-			return;
 			
 		}
 	 static void Number6(){
@@ -52,8 +49,8 @@ public class Numbrid {
 			System.out.println("|. .|");
 			System.out.println("|. .|");
 			System.out.println(" ¯¯¯");
-			return;
 		}
+	 
 	
 	 public static void main(String[] args) {
 		Number1();
