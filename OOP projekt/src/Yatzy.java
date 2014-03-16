@@ -1,8 +1,9 @@
-public class yatsy {
+// Testfail
+public class Yatzy {
 
 
 	public static void main(String[] args) {
-
+		int Skoor = 0;
 		// System.out.println("töötab!");
 		// System.out.println("Kui see tuleb läbi, siis oskan teha !");
 		System.out.println("Yatzy mäng");
@@ -18,6 +19,10 @@ public class yatsy {
 		// Lõppskoori arvutamine
 		System.out.println("Teie lõppskoor on:");
 		
+		for (int i = 0; i < 10; i++) {
+			Skoor = Skoor + 1;
+		    System.out.println(Skoor);
+		}
 		
 		
 			

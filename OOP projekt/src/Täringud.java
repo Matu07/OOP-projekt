@@ -9,6 +9,7 @@ public class Täringud extends Numbrid {
 	static int Täring44;
 	static int Täring55;
 	
+	//Vahetuste definitsioonid
 	static int Vaheta1() {
 		Täring11 = (int)Math.round(Math.random()*5+1);
 		return Täring11;
@@ -34,7 +35,7 @@ public class Täringud extends Numbrid {
 		return Täring55;
 	}
 	
-	
+	//Väärtustuste sidumine väljastatava täringukujutisega
 	static void Täring1(){
 		if (Täring11 == 1) {
 			Number1();
@@ -149,14 +150,26 @@ public class Täringud extends Numbrid {
 	}
 	
 	// Täringute testimine ja vahetamine TÖÖTAB ! ! !
-	// Sisse panna veel teine vahetus ja valmis teha tsükkel
-	// Esialgu võiks mängu üles ehitada Täringute summale (ühed, kahed, kolmed, neljad, viied, kuued)
+	// Sisse panna veel teine vahetus ja valmis teha tsükkel: OK
+	// Esialgu võiks mängu üles ehitada Täringute summale (ühed, kahed, kolmed, neljad, viied, kuued): OK
 	
 	public static void main(String[] args) {
-		int Käiguloendur = 0;
-		int Lõpp = 13;
+		//int Käiguloendur = 0;
+		//int Lõpp = 13;
+		int Skoor = 0;
 		int Vaheta = 0;
+		int lõplik1 = 0;
+		int lõplik2 = 0;
+		int lõplik3 = 0;
+		int lõplik4 = 0;
+		int lõplik5 = 0;
 		
+		System.out.println("Yatzy mäng");
+		System.out.println("Praeguste raundide eesmärk on saada võimalikult palju ettenähtud väärtusega täringuviskeid.");
+		
+		for (int i = 1; i < 7; i++) {
+		System.out.println(i + ". raund. Eesmärgiks on saada võimalikult palju täringuviskeid tulemusega " + i);
+		System.out.println("Esimese veeretamise tulemus:");
 		Vaheta1();
 		Vaheta2();
 		Vaheta3();
@@ -200,12 +213,74 @@ public class Täringud extends Numbrid {
 		if (Pakkumine5 == Vaheta) {
 			Vaheta5();
 		}
+		System.out.println("Tulemus vahetamise järel:");
+		Näitamine();
+		System.out.println("Nüüd on võimalik ka teist korda täringuid vahetada.");
+		System.out.println("------------------------------------");
+		
+	    System.out.println("Kas soovid vahetada esimest täringut? (0 = Vaheta, 1 = Jäta samaks)");
+	    int Pakkumine12 = scan.nextInt();
+	    
+	    System.out.println("Kas soovid vahetada teist täringut? (0 = Vaheta, 1 = Jäta samaks)");
+	    int Pakkumine22 = scan.nextInt();
+	    
+	    System.out.println("Kas soovid vahetada kolmandat täringut? (0 = Vaheta, 1 = Jäta samaks)");
+	    int Pakkumine32 = scan.nextInt();
+	    
+	    System.out.println("Kas soovid vahetada neljandat täringut? (0 = Vaheta, 1 = Jäta samaks)");
+	    int Pakkumine42 = scan.nextInt();
+	    
+	    System.out.println("Kas soovid vahetada viiendat täringut? (0 = Vaheta, 1 = Jäta samaks)");
+	    int Pakkumine52 = scan.nextInt();
+	    
+	    if (Pakkumine12 == Vaheta) {
+	    	Vaheta1();
+	    }
+	    
+	    if (Pakkumine22 == Vaheta) {
+			Vaheta2();
+		}
+	    
+	    if (Pakkumine32 == Vaheta) {
+			Vaheta3();
+		}
+	    
+	    if (Pakkumine42 == Vaheta) {
+			Vaheta4();
+		}
+	    
+		if (Pakkumine52 == Vaheta) {
+			Vaheta5();
+		}
+		System.out.println("Tulemus teise vahetamise järel:");
 		Näitamine();
 		
+		//Skoori arvutamise osa
+		lõplik1 = Täring11;
+		lõplik2 = Täring22;
+		lõplik3 = Täring33;
+		lõplik4 = Täring44;
+		lõplik5 = Täring55;
 		
+		if (lõplik1 == i){
+			Skoor = Skoor + i;
+		}
+		if (lõplik2 == i){
+			Skoor = Skoor + i;
+		}
+		if (lõplik3 == i){
+			Skoor = Skoor + i;
+		}
+		if (lõplik4 == i){
+			Skoor = Skoor + i;
+		}
+		if (lõplik5 == i){
+			Skoor = Skoor + i;
+		}
+		System.out.println("Punktiskoor on: " + Skoor + " punkti");
 			
 			
-		
+		}
 
 	}
 	

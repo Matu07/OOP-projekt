@@ -1,7 +1,7 @@
 
 
 
-public class Numbrid {
+public class Numbrid{
 	
 	 static void Number1(){
 		System.out.println(" ___");
