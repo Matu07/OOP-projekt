@@ -8,7 +8,7 @@ public class yatsy {
 		System.out.println("Yatzy mäng");
 		System.out.println("Veeretage täringuid!");
 		// Olemas:täringute kujutised
-		// Luua 5 täringu muutujat, mis saavad Randomiga väärtused 1-6, kujutamisel abiks klass "Numbrid"
+		// Luua 5 täringu muutujat, mis saavad Randomiga väärtused 1-6, kujutamisel abiks klass "Numbrid" DONE ! ! ! 
 		System.out.println("Saite järgmise tulemuse:");
 		// Nüüd on päris mängus võimalik kahel korral valida, milliseid uuesti veeretada. Tuleb kasutajalt küsida sisend.
 		System.out.println("Valige, milliseid täringuid uuesti veeretada:");
@@ -18,7 +18,10 @@ public class yatsy {
 		// Lõppskoori arvutamine
 		System.out.println("Teie lõppskoor on:");
 		
-
+		
+		
+			
+		
 	}
 
 }
