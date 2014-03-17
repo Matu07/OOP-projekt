@@ -168,6 +168,7 @@ public class Täringud extends Numbrid {
 		System.out.println("Praeguste raundide eesmärk on saada võimalikult palju ettenähtud väärtusega täringuviskeid.");
 		
 		for (int i = 1; i < 7; i++) {
+		int Raundiskoor = 0;
 		System.out.println(i + ". raund. Eesmärgiks on saada võimalikult palju täringuviskeid tulemusega " + i);
 		System.out.println("Esimese veeretamise tulemus:");
 		Vaheta1();
@@ -263,21 +264,23 @@ public class Täringud extends Numbrid {
 		lõplik5 = Täring55;
 		
 		if (lõplik1 == i){
-			Skoor = Skoor + i;
+			Raundiskoor = Raundiskoor + i;
 		}
 		if (lõplik2 == i){
-			Skoor = Skoor + i;
+			Raundiskoor = Raundiskoor + i;
 		}
 		if (lõplik3 == i){
-			Skoor = Skoor + i;
+			Raundiskoor = Raundiskoor + i;
 		}
 		if (lõplik4 == i){
-			Skoor = Skoor + i;
+			Raundiskoor = Raundiskoor + i;
 		}
 		if (lõplik5 == i){
-			Skoor = Skoor + i;
+			Raundiskoor = Raundiskoor + i;
 		}
-		System.out.println("Punktiskoor on: " + Skoor + " punkti");
+		Skoor = Skoor + Raundiskoor;
+		System.out.println("Selle raundi skoor on: " + Raundiskoor + " punkti");
+		System.out.println("Kogu punktiskoor on: " + Skoor + " punkti");
 			
 			
 		}
