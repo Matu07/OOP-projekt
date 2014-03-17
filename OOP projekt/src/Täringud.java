@@ -163,6 +163,12 @@ public class Täringud extends Numbrid {
 		
 		System.out.println("Yatzy mäng");
 		System.out.println("Praeguste raundide eesmärk on saada võimalikult palju ettenähtud väärtusega täringuviskeid.");
+		try {
+			TimeUnit.SECONDS.sleep(5);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		//Põhitsükkel
 		for (int i = 1; i < 7; i++) {
@@ -177,7 +183,6 @@ public class Täringud extends Numbrid {
 		Vaheta4();
 		Vaheta5();
 		Näitamine();
-		System.out.println("------------------------------------");
 		
 		//Täringute vahetamine
 		Scanner scan = new Scanner(System.in);
@@ -221,7 +226,6 @@ public class Täringud extends Numbrid {
 		
 		//Teine vahetamine
 		System.out.println("Nüüd on võimalik ka teist korda täringuid vahetada.");
-		System.out.println("------------------------------------");
 		
 	    System.out.println("Kas soovid vahetada esimest täringut? (0 = Vaheta, 1 = Jäta samaks)");
 	    int Pakkumine12 = scan.nextInt();
