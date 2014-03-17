@@ -1,5 +1,6 @@
 
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class Täringud extends Numbrid {
 	
@@ -281,8 +282,14 @@ public class Täringud extends Numbrid {
 		Skoor = Skoor + Raundiskoor;
 		System.out.println("Selle raundi skoor on: " + Raundiskoor + " punkti");
 		System.out.println("Kogu punktiskoor on: " + Skoor + " punkti");
+		try {
+			TimeUnit.SECONDS.sleep(5);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 			
-			
+		
 		}
 
 	}
