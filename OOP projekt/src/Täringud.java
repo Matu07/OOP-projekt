@@ -150,13 +150,9 @@ public class Täringud extends Numbrid {
 		Täring5();
 	}
 	
-	// Täringute testimine ja vahetamine TÖÖTAB ! ! !
-	// Sisse panna veel teine vahetus ja valmis teha tsükkel: OK
-	// Esialgu võiks mängu üles ehitada Täringute summale (ühed, kahed, kolmed, neljad, viied, kuued): OK
 	
 	public static void main(String[] args) {
-		//int Käiguloendur = 0;
-		//int Lõpp = 13;
+
 		int Skoor = 0;
 		int Vaheta = 0;
 		int lõplik1 = 0;
@@ -168,10 +164,13 @@ public class Täringud extends Numbrid {
 		System.out.println("Yatzy mäng");
 		System.out.println("Praeguste raundide eesmärk on saada võimalikult palju ettenähtud väärtusega täringuviskeid.");
 		
+		//Põhitsükkel
 		for (int i = 1; i < 7; i++) {
 		int Raundiskoor = 0;
 		System.out.println(i + ". raund. Eesmärgiks on saada võimalikult palju täringuviskeid tulemusega " + i);
 		System.out.println("Esimese veeretamise tulemus:");
+		
+		//Väljastab esimese visketulemuse
 		Vaheta1();
 		Vaheta2();
 		Vaheta3();
@@ -179,6 +178,8 @@ public class Täringud extends Numbrid {
 		Vaheta5();
 		Näitamine();
 		System.out.println("------------------------------------");
+		
+		//Täringute vahetamine
 		Scanner scan = new Scanner(System.in);
 		
 	    System.out.println("Kas soovid vahetada esimest täringut? (0 = Vaheta, 1 = Jäta samaks)");
@@ -217,6 +218,8 @@ public class Täringud extends Numbrid {
 		}
 		System.out.println("Tulemus vahetamise järel:");
 		Näitamine();
+		
+		//Teine vahetamine
 		System.out.println("Nüüd on võimalik ka teist korda täringuid vahetada.");
 		System.out.println("------------------------------------");
 		
@@ -282,6 +285,8 @@ public class Täringud extends Numbrid {
 		Skoor = Skoor + Raundiskoor;
 		System.out.println("Selle raundi skoor on: " + Raundiskoor + " punkti");
 		System.out.println("Kogu punktiskoor on: " + Skoor + " punkti");
+		
+		// 5 sekundit viivitust raundide vahel
 		try {
 			TimeUnit.SECONDS.sleep(5);
 		} catch (InterruptedException e) {

@@ -2,7 +2,7 @@
 
 
 public class Numbrid{
-	
+	//Täringute kujutised, mis seotakse väärtustega
 	 static void Number1(){
 		System.out.println(" ___");
 		System.out.println("|   |");
