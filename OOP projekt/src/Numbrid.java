@@ -3,62 +3,63 @@
 
 public class Numbrid{
 	//Täringute kujutised, mis seotakse väärtustega
-	 static void Number1(){
-		System.out.println(" ___");
-		System.out.println("|   |");
-		System.out.println("| . |");
-		System.out.println("|   |");
-		System.out.println(" ¯¯¯");
+	 static void Number(int number){
+		 if (number == 1) {
+			System.out.println(" ___");
+			System.out.println("|   |");
+			System.out.println("| . |");
+			System.out.println("|   |");
+			System.out.println(" ¯¯¯"); 
+		 }
+		 else if (number == 2) {
+			System.out.println(" ___");
+			System.out.println("|.  |");
+			System.out.println("|   |");
+			System.out.println("|  .|");
+			System.out.println(" ¯¯¯");
+		 }
+		 else if (number == 3) {
+			System.out.println(" ___");
+			System.out.println("|.  |");
+			System.out.println("| . |");
+			System.out.println("|  .|");
+			System.out.println(" ¯¯¯");
+		 }
+		 else if (number == 4) {
+			System.out.println(" ___");
+			System.out.println("|. .|");
+			System.out.println("|   |");
+			System.out.println("|. .|");
+			System.out.println(" ¯¯¯");
+		 }
+		 else if (number == 5) {
+			System.out.println(" ___");
+			System.out.println("|. .|");
+			System.out.println("| . |");
+			System.out.println("|. .|");
+			System.out.println(" ¯¯¯");
+		 }
+		 else if (number ==6) {
+			System.out.println(" ___");
+			System.out.println("|. .|");
+			System.out.println("|. .|");
+			System.out.println("|. .|");
+			System.out.println(" ¯¯¯");
+		 }
+		 else {
+			 System.out.println("Vale väärtus!!!");
+		 }
 	}
-	 
-	 static void Number2(){
-			System.out.println(" ___");
-			System.out.println("|.  |");
-			System.out.println("|   |");
-			System.out.println("|  .|");
-			System.out.println(" ¯¯¯");
-		}
-	 
-	 static void Number3(){
-			System.out.println(" ___");
-			System.out.println("|.  |");
-			System.out.println("| . |");
-			System.out.println("|  .|");
-			System.out.println(" ¯¯¯");
-		}
-	 
-	 static void Number4(){
-			System.out.println(" ___");
-			System.out.println("|. .|");
-			System.out.println("|   |");
-			System.out.println("|. .|");
-			System.out.println(" ¯¯¯");
-		}
-	 
-	 static void Number5(){
-			System.out.println(" ___");
-			System.out.println("|. .|");
-			System.out.println("| . |");
-			System.out.println("|. .|");
-			System.out.println(" ¯¯¯");
-			
-		}
-	 static void Number6(){
-			System.out.println(" ___");
-			System.out.println("|. .|");
-			System.out.println("|. .|");
-			System.out.println("|. .|");
-			System.out.println(" ¯¯¯");
-		}
 	 
 	
 	 public static void main(String[] args) {
-		Number1();
-		Number2();
-		Number3();
-		Number4();
-		Number5();
-		Number6();
+		Number(1);
+		Number(2);
+		Number(3);
+		Number(4);
+		Number(5);
+		Number(6);
+		Number(7);
 	}
 	
 

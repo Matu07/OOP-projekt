@@ -1,308 +1,145 @@
-
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class Täringud extends Numbrid {
-	
-	static int Täring11;
-	static int Täring22;
-	static int Täring33;
-	static int Täring44;
-	static int Täring55;
-	
-	//Vahetuste definitsioonid
-	static int Vaheta1() {
-		Täring11 = (int)Math.round(Math.random()*5+1);
-		return Täring11;
-	}
-	
-	static int Vaheta2() {
-		Täring22 = (int)Math.round(Math.random()*5+1);
-		return Täring22;
-	}
-	
-	static int Vaheta3() {
-		Täring33 = (int)Math.round(Math.random()*5+1);
-		return Täring33;
-	}
-	
-	static int Vaheta4() {
-		Täring44 = (int)Math.round(Math.random()*5+1);
-		return Täring44;
-	}
-	
-	static int Vaheta5() {
-		Täring55 = (int)Math.round(Math.random()*5+1);
-		return Täring55;
-	}
-	
-	//Väärtustuste sidumine väljastatava täringukujutisega
-	static void Täring1(){
-		if (Täring11 == 1) {
-			Number1();
-		}
-		else if ( Täring11 == 2) {
-			Number2();
-		}
-		else if ( Täring11 == 3) {
-			Number3();
-		}
-		else if ( Täring11 == 4) {
-			Number4();
-		}
-		else if ( Täring11 == 5) {
-			Number5();
-		}
-		else if (Täring11 == 6) {
-			Number6();
-		}
-	}
-	
-	static void Täring2(){
-		if (Täring22 == 1) {
-			Number1();
-		}
-		else if ( Täring22 == 2) {
-			Number2();
-		}
-		else if ( Täring22 == 3) {
-			Number3();
-		}
-		else if ( Täring22 == 4) {
-			Number4();
-		}
-		else if ( Täring22 == 5) {
-			Number5();
-		}
-		else if (Täring22 == 6) {
-			Number6();
-		}
-	}
 
-	static void Täring3(){
-		if (Täring33 == 1) {
-			Number1();
+	static int Täring(int arv) {
+		if (arv == 1) {
+			Täring1 = (int) Math.round(Math.random() * 5 + 1);
+			return Täring1;
+		} else if (arv == 2) {
+			Täring2 = (int) Math.round(Math.random() * 5 + 1);
+			return Täring2;
+		} else if (arv == 3) {
+			Täring3 = (int) Math.round(Math.random() * 5 + 1);
+			return Täring3;
+		} else if (arv == 4) {
+			Täring4 = (int) Math.round(Math.random() * 5 + 1);
+			return Täring4;
+		} else if (arv == 5) {
+			Täring5 = (int) Math.round(Math.random() * 5 + 1);
+			return Täring5;
+		} else {
+			System.out.println("VALE VÄÄRTUS");
+			return 0;
 		}
-		else if ( Täring33 == 2) {
-			Number2();
-		}
-		else if ( Täring33 == 3) {
-			Number3();
-		}
-		else if ( Täring33 == 4) {
-			Number4();
-		}
-		else if ( Täring33 == 5) {
-			Number5();
-		}
-		else if (Täring33 == 6) {
-			Number6();
-		}
-	}
+	};
 
-	static void Täring4(){
-		if (Täring44 == 1) {
-			Number1();
-		}
-		else if ( Täring44 == 2) {
-			Number2();
-		}
-		else if ( Täring44 == 3) {
-			Number3();
-		}
-		else if ( Täring44 == 4) {
-			Number4();
-		}
-		else if ( Täring44 == 5) {
-			Number5();
-		}
-		else if (Täring44 == 6) {
-			Number6();
-		}
-	}
-	
-	static void Täring5(){
-		if (Täring55 == 1) {
-			Number1();
-		}
-		else if ( Täring55 == 2) {
-			Number2();
-		}
-		else if ( Täring55 == 3) {
-			Number3();
-		}
-		else if ( Täring55 == 4) {
-			Number4();
-		}
-		else if ( Täring55 == 5) {
-			Number5();
-		}
-		else if (Täring55 == 6) {
-			Number6();
-		}
-	}
-		
+	static int Täring1;
+	static int Täring2;
+	static int Täring3;
+	static int Täring4;
+	static int Täring5;
+
 	static void Näitamine() {
-		Täring1();
-		Täring2();
-		Täring3();
-		Täring4();
-		Täring5();
+		Number(Täring1);
+		Number(Täring2);
+		Number(Täring3);
+		Number(Täring4);
+		Number(Täring5);
 	}
-	
-	
+
+	static int pakutud = 0;
+
+	static int Pakkumine(int suvaline) {
+		if (pakutud == 0) {
+			return Täring(suvaline);
+		}
+		return suvaline;
+
+	}
+
 	public static void main(String[] args) {
 
 		int Skoor = 0;
-		int Vaheta = 0;
+
 		int lõplik1 = 0;
 		int lõplik2 = 0;
 		int lõplik3 = 0;
 		int lõplik4 = 0;
 		int lõplik5 = 0;
-		
 		System.out.println("Yatzy mäng");
-		System.out.println("Praeguste raundide eesmärk on saada võimalikult palju ettenähtud väärtusega täringuviskeid.");
+		System.out
+				.println("Praeguste raundide eesmärk on saada võimalikult palju ettenähtud väärtusega täringuviskeid.");
 		try {
 			TimeUnit.SECONDS.sleep(5);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		//Põhitsükkel
-		for (int i = 1; i < 7; i++) {
-		int Raundiskoor = 0;
-		System.out.println(i + ". raund. Eesmärgiks on saada võimalikult palju täringuviskeid tulemusega " + i);
-		System.out.println("Esimese veeretamise tulemus:");
-		
-		//Väljastab esimese visketulemuse
-		Vaheta1();
-		Vaheta2();
-		Vaheta3();
-		Vaheta4();
-		Vaheta5();
-		Näitamine();
-		
-		//Täringute vahetamine
-		Scanner scan = new Scanner(System.in);
-		
-	    System.out.println("Kas soovid vahetada esimest täringut? (0 = Vaheta, 1 = Jäta samaks)");
-	    int Pakkumine1 = scan.nextInt();
-	    
-	    System.out.println("Kas soovid vahetada teist täringut? (0 = Vaheta, 1 = Jäta samaks)");
-	    int Pakkumine2 = scan.nextInt();
-	    
-	    System.out.println("Kas soovid vahetada kolmandat täringut? (0 = Vaheta, 1 = Jäta samaks)");
-	    int Pakkumine3 = scan.nextInt();
-	    
-	    System.out.println("Kas soovid vahetada neljandat täringut? (0 = Vaheta, 1 = Jäta samaks)");
-	    int Pakkumine4 = scan.nextInt();
-	    
-	    System.out.println("Kas soovid vahetada viiendat täringut? (0 = Vaheta, 1 = Jäta samaks)");
-	    int Pakkumine5 = scan.nextInt();
-	    
-	    if (Pakkumine1 == Vaheta) {
-			Vaheta1();
-	    }
-	    
-	    if (Pakkumine2 == Vaheta) {
-			Vaheta2();
-		}
-	    
-	    if (Pakkumine3 == Vaheta) {
-			Vaheta3();
-		}
-	    
-	    if (Pakkumine4 == Vaheta) {
-			Vaheta4();
-		}
-	    
-		if (Pakkumine5 == Vaheta) {
-			Vaheta5();
-		}
-		System.out.println("Tulemus vahetamise järel:");
-		Näitamine();
-		
-		//Teine vahetamine
-		System.out.println("Nüüd on võimalik ka teist korda täringuid vahetada.");
-		
-	    System.out.println("Kas soovid vahetada esimest täringut? (0 = Vaheta, 1 = Jäta samaks)");
-	    int Pakkumine12 = scan.nextInt();
-	    
-	    System.out.println("Kas soovid vahetada teist täringut? (0 = Vaheta, 1 = Jäta samaks)");
-	    int Pakkumine22 = scan.nextInt();
-	    
-	    System.out.println("Kas soovid vahetada kolmandat täringut? (0 = Vaheta, 1 = Jäta samaks)");
-	    int Pakkumine32 = scan.nextInt();
-	    
-	    System.out.println("Kas soovid vahetada neljandat täringut? (0 = Vaheta, 1 = Jäta samaks)");
-	    int Pakkumine42 = scan.nextInt();
-	    
-	    System.out.println("Kas soovid vahetada viiendat täringut? (0 = Vaheta, 1 = Jäta samaks)");
-	    int Pakkumine52 = scan.nextInt();
-	    
-	    if (Pakkumine12 == Vaheta) {
-	    	Vaheta1();
-	    }
-	    
-	    if (Pakkumine22 == Vaheta) {
-			Vaheta2();
-		}
-	    
-	    if (Pakkumine32 == Vaheta) {
-			Vaheta3();
-		}
-	    
-	    if (Pakkumine42 == Vaheta) {
-			Vaheta4();
-		}
-	    
-		if (Pakkumine52 == Vaheta) {
-			Vaheta5();
-		}
-		System.out.println("Tulemus teise vahetamise järel:");
-		Näitamine();
-		
-		//Skoori arvutamise osa
-		lõplik1 = Täring11;
-		lõplik2 = Täring22;
-		lõplik3 = Täring33;
-		lõplik4 = Täring44;
-		lõplik5 = Täring55;
-		
-		if (lõplik1 == i){
-			Raundiskoor = Raundiskoor + i;
-		}
-		if (lõplik2 == i){
-			Raundiskoor = Raundiskoor + i;
-		}
-		if (lõplik3 == i){
-			Raundiskoor = Raundiskoor + i;
-		}
-		if (lõplik4 == i){
-			Raundiskoor = Raundiskoor + i;
-		}
-		if (lõplik5 == i){
-			Raundiskoor = Raundiskoor + i;
-		}
-		Skoor = Skoor + Raundiskoor;
-		System.out.println("Selle raundi skoor on: " + Raundiskoor + " punkti");
-		System.out.println("Kogu punktiskoor on: " + Skoor + " punkti");
-		
-		// 5 sekundit viivitust raundide vahel
-		try {
-			TimeUnit.SECONDS.sleep(5);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-			
-		
+
+		// Põhitsükkel
+		for (int x = 1; x < 7; x++) {
+			int Raundiskoor = 0;
+			System.out
+					.println(x
+							+ ". raund. Eesmärgiks on saada võimalikult palju täringuviskeid tulemusega "
+							+ x);
+			System.out.println("Esimese veeretamise tulemus:");
+
+			// Väljastab esimese visketulemuse
+			for (int j = 1; j < 6; j++) {
+				Täring(j);
+			}
+			Näitamine();
+
+			// Täringute vahetamine
+			Scanner scan = new Scanner(System.in);
+			for (int a = 1; a < 6; a++) {
+				System.out.println("Kas soovid vahetada " + a
+						+ ". täringut? (0 = Vaheta)");
+				pakutud = scan.nextInt();
+				Pakkumine(a);
+			}
+
+			System.out.println("Tulemus vahetamise järel:");
+			Näitamine();
+			for (int b = 1; b < 6; b++) {
+				System.out.println("Kas soovid vahetada " + b
+						+ ". täringut? (0 = Vaheta)");
+				pakutud = scan.nextInt();
+				Pakkumine(b);
+			}
+
+			System.out.println("Tulemus teise vahetamise järel:");
+			Näitamine();
+
+			// Skoori arvutamise osa
+			lõplik1 = Täring1;
+			lõplik2 = Täring2;
+			lõplik3 = Täring3;
+			lõplik4 = Täring4;
+			lõplik5 = Täring5;
+
+			if (lõplik1 == x) {
+				Raundiskoor = Raundiskoor + x;
+			}
+			if (lõplik2 == x) {
+				Raundiskoor = Raundiskoor + x;
+			}
+			if (lõplik3 == x) {
+				Raundiskoor = Raundiskoor + x;
+			}
+			if (lõplik4 == x) {
+				Raundiskoor = Raundiskoor + x;
+			}
+			if (lõplik5 == x) {
+				Raundiskoor = Raundiskoor + x;
+			}
+			Skoor = Skoor + Raundiskoor;
+			System.out.println("Selle raundi skoor on: " + Raundiskoor
+					+ " punkti");
+			System.out.println("Kogu punktiskoor on: " + Skoor + " punkti");
+
+			// 5 sekundit viivitust raundide vahel
+			try {
+				TimeUnit.SECONDS.sleep(5);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
 		}
 
 	}
-	
-	}
 
-
+}
