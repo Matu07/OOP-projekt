@@ -20,11 +20,4 @@
 		<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>src/application/Täringud</name>
-			<type>2</type>
-			<location>C:/Users/silverwithp/Desktop/Täringud</location>
-		</link>
-	</linkedResources>
 </projectDescription>
