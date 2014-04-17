@@ -3,16 +3,19 @@ package application;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -20,18 +23,12 @@ public class Yatzy extends Application {
 
 	@Override
 	public void start(final Stage PeaMäng) {
-		Group juur = new Group();
 		Text ühed = new Text("Ühed");
 		Text kahed = new Text("Kahed");
 		Text kolmed = new Text("Kolmed");
 		Text neljad = new Text("Neljad");
 		Text viied = new Text("Viied");
 		Text kuued = new Text("Kuued");
-		Text veereta = new Text("Veereta");
-
-		VBox vBox = new VBox(10);
-		vBox.setAlignment(Pos.BASELINE_LEFT);
-		vBox.getChildren().addAll(ühed, kahed, kolmed, neljad, viied, kuued);
 
 		ühed.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent me) {
@@ -39,6 +36,33 @@ public class Yatzy extends Application {
 
 			}
 		});
+		
+		
+		
+		//PUNKTIDE ALA
+
+		VBox punktiala = new VBox(40);
+		punktiala.setPadding(new Insets(10));
+		Text punktid = new Text("Punktid");
+		punktid.setFont(Font.font("Ariel", 20));
+		punktid.setUnderline(true);
+		
+	    punktiala.getChildren().addAll(punktid,ühed,kahed, kolmed,neljad,viied,kuued);
+	    punktiala.setStyle("-fx-background-color: ghostwhite");
+		
+		//VEERTA NUPP
+	    HBox nuppudeala = new HBox();
+	    nuppudeala.setPadding(new Insets(40));
+	    nuppudeala.setAlignment(Pos.CENTER);
+	    Button veereta = new Button("VEERETA TÄRINGUID");
+	    nuppudeala.getChildren().add(veereta);
+	    
+	    
+	    // MÄNGUALA
+	    BorderPane mänguala = new BorderPane();
+	    mänguala.setLeft(punktiala);
+	    mänguala.setBottom(nuppudeala);
+		
 
 		// MÄNGIJANIME EI SISESTATUD
 		final Stage mängijaaken = new Stage();
@@ -105,11 +129,13 @@ public class Yatzy extends Application {
 
 		mängijaaken.setTitle("MÄNGIJA NIME AKEN");
 
-		Scene stseen1 = new Scene(vBox, 535, 535, Color.GREEN);
+		Scene stseen1 = new Scene(mänguala, 535, 535, Color.GREEN);
+
 
 		PeaMäng.setTitle("Yatzy");
 
 		PeaMäng.setScene(stseen1);
+		PeaMäng.setResizable(false);
 
 		PeaMäng.hide();
 		mängijaaken.show();
