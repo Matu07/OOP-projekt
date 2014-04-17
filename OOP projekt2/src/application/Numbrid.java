@@ -4,7 +4,11 @@ package application;
 
 public class Numbrid{
 	//Täringute kujutised, mis seotakse väärtustega
+<<<<<<< HEAD
 	 public static void Number(int number){
+=======
+	 static void Number(int number){
+>>>>>>> 1f8f454da175d9e80056885e330245805abd7003
 		 if (number == 1) {
 			System.out.println(" ___");
 			System.out.println("|   |");
