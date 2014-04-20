@@ -49,19 +49,37 @@ public class Yatzy extends Application {
 		
 	    punktiala.getChildren().addAll(punktid,ühed,kahed, kolmed,neljad,viied,kuued);
 	    punktiala.setStyle("-fx-background-color: ghostwhite");
+	    
+	    //TEKSTIALA
+	    HBox tekstiala = new HBox();
+	  	tekstiala.setPadding(new Insets(10));
+	  	Text yatzymäng = new Text("Yatzy mäng");
+	  	yatzymäng.setFont(Font.font("Ariel", 20));
+	  	yatzymäng.setUnderline(true);
+	  	tekstiala.getChildren().add(yatzymäng);
+	  	
 		
-		//VEERTA NUPP
+		//NUPPUDE ALA
 	    HBox nuppudeala = new HBox();
 	    nuppudeala.setPadding(new Insets(40));
 	    nuppudeala.setAlignment(Pos.CENTER);
 	    Button veereta = new Button("VEERETA TÄRINGUID");
 	    nuppudeala.getChildren().add(veereta);
 	    
+	    Button lõpeta = new Button("LÕPETA MÄNG");
+	    lõpeta.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent me) {
+				PeaMäng.hide();
+			}
+	    });
+	    nuppudeala.getChildren().add(lõpeta);
+	    
 	    
 	    // MÄNGUALA
 	    BorderPane mänguala = new BorderPane();
 	    mänguala.setLeft(punktiala);
 	    mänguala.setBottom(nuppudeala);
+	    mänguala.setCenter(tekstiala);
 		
 
 		// MÄNGIJANIME EI SISESTATUD
