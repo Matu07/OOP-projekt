@@ -1,31 +1,50 @@
 package application;
+
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+
 public class Täringud extends Numbrid {
 
-	
+	static int punktide_lisamine;
 	static int veeretus;
-	
+	static ImageView iv1 = new ImageView();
+	static ImageView iv2 = new ImageView();
+	static ImageView iv3 = new ImageView();
+	static ImageView iv4 = new ImageView();
+	static ImageView iv5 = new ImageView();
+	static int skoor;
+
 	static int Täring(int arv) {
 		if (arv == 1) {
 			täring1 = (int) Math.round(Math.random() * 5 + 1);
 			return täring1;
 		} else if (arv == 2) {
 			täring2 = (int) Math.round(Math.random() * 5 + 1);
+			iv2.setImage(Numbrid.Number(täring2));
+			iv2.setFitWidth(75);
+			iv2.setPreserveRatio(true);
 			return täring2;
 		} else if (arv == 3) {
 			täring3 = (int) Math.round(Math.random() * 5 + 1);
+			iv3.setImage(Numbrid.Number(täring3));
+			iv3.setFitWidth(75);
+			iv3.setPreserveRatio(true);
 			return täring3;
 		} else if (arv == 4) {
 			täring4 = (int) Math.round(Math.random() * 5 + 1);
+			iv4.setImage(Numbrid.Number(täring4));
+			iv4.setFitWidth(75);
+			iv4.setPreserveRatio(true);
 			return täring4;
-		} else if (arv == 5) {
-			täring5 = (int) Math.round(Math.random() * 5 + 1);
-			return täring5;
 		} else {
-			System.out.println("VALE VÄÄRTUS");
-			return 0;
+			täring5 = (int) Math.round(Math.random() * 5 + 1);
+			iv5.setImage(Numbrid.Number(täring5));
+			iv5.setFitWidth(75);
+			iv5.setPreserveRatio(true);
+			return täring5;
 		}
 	};
 
@@ -35,12 +54,29 @@ public class Täringud extends Numbrid {
 	static int täring4;
 	static int täring5;
 
-	static void Näitamine() {
-		Number(täring1);
-		Number(täring2);
-		Number(täring3);
-		Number(täring4);
-		Number(täring5);
+	static void Veeretamine() {
+		for (int i = 0; i < 6; i++) {
+			Täring(i);
+		}
+	}
+
+	static void Näitamine(HBox o) {
+		iv1.setImage(Numbrid.Number(täring1));
+		iv1.setFitWidth(75);
+		iv1.setPreserveRatio(true);
+		iv2.setImage(Numbrid.Number(täring2));
+		iv2.setFitWidth(75);
+		iv2.setPreserveRatio(true);
+		iv3.setImage(Numbrid.Number(täring3));
+		iv3.setFitWidth(75);
+		iv3.setPreserveRatio(true);
+		iv4.setImage(Numbrid.Number(täring4));
+		iv4.setFitWidth(75);
+		iv4.setPreserveRatio(true);
+		iv5.setImage(Numbrid.Number(täring5));
+		iv5.setFitWidth(75);
+		iv5.setPreserveRatio(true);
+		o.getChildren().addAll(iv1, iv2, iv3, iv4, iv5);
 	}
 
 	static int pakutud = 0;
@@ -79,10 +115,6 @@ public class Täringud extends Numbrid {
 			System.out.println("Esimese veeretamise tulemus:");
 
 			// Väljastab esimese visketulemuse
-			for (int j = 1; j < 6; j++) {
-				Täring(j);
-			}
-			Näitamine();
 
 			// Täringute vahetamine
 			Scanner scan = new Scanner(System.in);
@@ -94,7 +126,7 @@ public class Täringud extends Numbrid {
 			}
 
 			System.out.println("Tulemus vahetamise järel:");
-			Näitamine();
+
 			for (int b = 1; b < 6; b++) {
 				System.out.println("Kas soovid vahetada " + b
 						+ ". täringut? (0 = Vaheta)");
@@ -103,7 +135,6 @@ public class Täringud extends Numbrid {
 			}
 
 			System.out.println("Tulemus teise vahetamise järel:");
-			Näitamine();
 
 			// Skoori arvutamise osa
 			lõplik1 = täring1;

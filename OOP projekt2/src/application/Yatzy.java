@@ -33,7 +33,8 @@ public class Yatzy extends Application {
 		Text neljad = new Text("Neljad");
 		Text viied = new Text("Viied");
 		Text kuued = new Text("Kuued");
-		final int skoor = 0;
+
+
 		
 		
 		
@@ -51,9 +52,27 @@ public class Yatzy extends Application {
 	    ühed.setOnMouseClicked(new EventHandler<MouseEvent>() {
 	    	public void handle(MouseEvent me) {
 	    		if (Täringud.veeretus ==2) {
+	    			if (Täringud.täring1 == 1) {
+	    				Täringud.skoor += Täringud.täring1;
+	    			}
+	    			if (Täringud.täring2 == 1) {
+	    				Täringud.skoor += Täringud.täring2;
+	    			}
+	    			if (Täringud.täring3 == 1) {
+	    				Täringud.skoor += Täringud.täring3;
+	    			}
+	    			if (Täringud.täring4 == 1) {
+	    				Täringud.skoor += Täringud.täring4;
+	    			}
+	    			if (Täringud.täring5 == 1) {
+	    				Täringud.skoor += Täringud.täring5;
+	    			}
+	    			System.out.println("Prindib väärtused, mis peaksid olema samad täringutega : " + Täringud.täring1 + " " + Täringud.täring2 + " " + Täringud.täring3 + " " + Täringud.täring4 + " " + Täringud.täring5 );
 	    			punktiala.getChildren().remove(ühed);
-	    			Text ühedlõplik = new Text("Ühed: " + skoor);
+	    			Text ühedlõplik = new Text("Ühed: " + Täringud.skoor);
 	    			punktiala.getChildren().add(1, ühedlõplik);
+	    			Täringud.punktide_lisamine = 0;
+	    			Täringud.veeretus=0;
 	    		}
 	    	}
 	    });
@@ -97,41 +116,27 @@ public class Yatzy extends Application {
 	    veereta.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent me) {
 				//NÄITAB NUPUVAJUTUSE PEALE TÄRINGUID, ESIALGU JÄRJEST JA KORDUV VAJUTUS TEKITAB JAMA
-				if (Täringud.veeretus == 1) {
-					põhitäringud.getChildren().clear();
-					Täringud.veeretus+=1;
-				}
-				if (Täringud.veeretus ==2) {
-					põhitäringud.getChildren().clear();
-					Täringud.veeretus=0;
+				if (Täringud.punktide_lisamine==0) {
+					if (Täringud.veeretus == 1) {
+						põhitäringud.getChildren().clear();
+						Täringud.Veeretamine();
+						Täringud.Näitamine(põhitäringud);
+						Täringud.veeretus+=1;				
+						}
+					else if (Täringud.veeretus ==2) {
+						põhitäringud.getChildren().clear();
+						Täringud.Veeretamine();
+						Täringud.Näitamine(põhitäringud);
+						Täringud.punktide_lisamine=1;
+						
+					}
+					else {
+						Täringud.Veeretamine();
+						Täringud.Näitamine(põhitäringud);
+						Täringud.veeretus+=1;
+					}
 					
 				}
-				ImageView iv1 = new ImageView();
-		        iv1.setImage(Numbrid.Number((int) Math.round(Math.random() * 5 + 1)));
-		        iv1.setFitWidth(75);
-		        iv1.setPreserveRatio(true);
-		        ImageView iv2 = new ImageView();
-		        iv2.setImage(Numbrid.Number((int) Math.round(Math.random() * 5 + 1)));
-		        iv2.setFitWidth(75);
-		        iv2.setPreserveRatio(true);
-		        ImageView iv3 = new ImageView();
-		        iv3.setImage(Numbrid.Number((int) Math.round(Math.random() * 5 + 1)));
-		        iv3.setFitWidth(75);
-		        iv3.setPreserveRatio(true);
-		        ImageView iv4 = new ImageView();
-		        iv4.setImage(Numbrid.Number((int) Math.round(Math.random() * 5 + 1)));
-		        iv4.setFitWidth(75);
-		        iv4.setPreserveRatio(true);
-		        ImageView iv5 = new ImageView();
-		        iv5.setImage(Numbrid.Number((int) Math.round(Math.random() * 5 + 1)));
-		        iv5.setFitWidth(75);
-		        iv5.setPreserveRatio(true);
-		        ImageView iv6 = new ImageView();
-		        iv6.setImage(Numbrid.Number((int) Math.round(Math.random() * 5 + 1)));
-		        iv6.setFitWidth(72);
-		        iv6.setPreserveRatio(true);
-				põhitäringud.getChildren().addAll(iv1, iv2, iv3, iv4, iv5, iv6);
-				Täringud.veeretus+=1;
 				
 			}
 	    });
