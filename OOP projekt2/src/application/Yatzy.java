@@ -137,10 +137,9 @@ public class Yatzy extends Application {
 		põhiülemine.getChildren().addAll(yatzymäng, eesmärk);
 
 		// PÕHIALA KESKMINE MÄNGUOSA
-		VBox põhikesk = new VBox();
+		final VBox põhikesk = new VBox();
 		põhikesk.setPadding(new Insets(10));
-		Text ajutine1 = new Text("Siin hakkab jooksma mänguinfo");
-		põhikesk.getChildren().addAll(ajutine1);
+		final Text vahetustekst = new Text("Vali, millist täringut soovid vahetada.");
 
 		// PÕHIALA ALUMINE TÄRINGUTEGA OSA
 		final HBox põhitäringud = new HBox();
@@ -152,6 +151,12 @@ public class Yatzy extends Application {
 		nuppudeala.setPadding(new Insets(40));
 		nuppudeala.setAlignment(Pos.CENTER);
 
+		Button vahetus1 = new Button("VAHETA 1.");
+		Button vahetus2 = new Button("VAHETA 2.");
+		Button vahetus3 = new Button("VAHETA 3.");
+		Button vahetus4 = new Button("VAHETA 4.");
+		Button vahetus5 = new Button("VAHETA 5.");
+		
 		Button veereta = new Button("VEERETA TÄRINGUID");
 		veereta.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent me) {
@@ -170,6 +175,7 @@ public class Yatzy extends Application {
 						Täringud.punktide_lisamine = 1;
 
 					} else {
+						põhikesk.getChildren().addAll(vahetustekst);
 						põhitäringud.getChildren().clear();
 						Täringud.Veeretamine();
 						Täringud.Näitamine(põhitäringud);
@@ -187,7 +193,7 @@ public class Yatzy extends Application {
 				PeaMäng.hide();
 			}
 		});
-		nuppudeala.getChildren().addAll(veereta, lõpeta);
+		nuppudeala.getChildren().addAll(veereta, lõpeta, vahetus1, vahetus2, vahetus3, vahetus4, vahetus5);
 
 		põhiala.setTop(põhiülemine);
 		põhiala.setCenter(põhikesk);
@@ -286,6 +292,11 @@ public class Yatzy extends Application {
 		Täringud.koguskoor += Täringud.skoor;
 		Täringud.skoor = 0;
 		Täringud.korraloendur += 1;
+		Täringud.vaheta1 = 0;
+		Täringud.vaheta2 = 0;
+		Täringud.vaheta3 = 0;
+		Täringud.vaheta4 = 0;
+		Täringud.vaheta5 = 0;
 		if (Täringud.korraloendur == 6) {
 			Text kokku = new Text("Mängija: " + "\n" + mängijanimi + "\nskoor kokku:\n" + Täringud.koguskoor);
 			punktiala.getChildren().add(kokku);
