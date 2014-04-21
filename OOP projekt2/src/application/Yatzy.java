@@ -29,6 +29,7 @@ public class Yatzy extends Application {
 		final Text neljad = new Text("Neljad");
 		final Text viied = new Text("Viied");
 		final Text kuued = new Text("Kuued");
+		
 
 		// PUNKTIDE ALA
 
@@ -50,7 +51,7 @@ public class Yatzy extends Application {
 					Text ühedlõplik = new Text("Ühed: " + Täringud.skoor);
 					punktiala.getChildren().add(1, ühedlõplik);
 					PealePunkte(punktiala);
-					Lõpukontroll(punktiala);
+
 				}
 			}
 		});
@@ -63,7 +64,6 @@ public class Yatzy extends Application {
 					Text kahedlõplik = new Text("Kahed: " + Täringud.skoor);
 					punktiala.getChildren().add(2, kahedlõplik);
 					PealePunkte(punktiala);
-					Lõpukontroll(punktiala);
 
 				}
 			}
@@ -77,7 +77,6 @@ public class Yatzy extends Application {
 					Text kolmedlõplik = new Text("Kolmed: " + Täringud.skoor);
 					punktiala.getChildren().add(3, kolmedlõplik);
 					PealePunkte(punktiala);
-					Lõpukontroll(punktiala);
 
 				}
 			}
@@ -105,7 +104,6 @@ public class Yatzy extends Application {
 					Text viiedlõplik = new Text("Viied: " + Täringud.skoor);
 					punktiala.getChildren().add(5, viiedlõplik);
 					PealePunkte(punktiala);
-					Lõpukontroll(punktiala);
 
 				}
 			}
@@ -119,7 +117,6 @@ public class Yatzy extends Application {
 					Text kuuedlõplik = new Text("Kuued: " + Täringud.skoor);
 					punktiala.getChildren().add(6, kuuedlõplik);
 					PealePunkte(punktiala);
-					Lõpukontroll(punktiala);
 
 				}
 			}
@@ -240,14 +237,13 @@ public class Yatzy extends Application {
 
 		sisenemängu.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent me) {
-				String mängijanimi = nimi.getText();
+				mängijanimi = nimi.getText();
 				if (mängijanimi.equals("Sisesta oma nimi")) {
 					mängijaaken.hide();
 					error.show();
 				} else {
 					mängijaaken.hide();
 					PeaMäng.show();
-					System.out.println(mängijanimi);
 				}
 
 			}
@@ -272,7 +268,7 @@ public class Yatzy extends Application {
 		PeaMäng.setTitle("Yatzy");
 
 		PeaMäng.setScene(stseen1);
-		PeaMäng.setResizable(false);
+		PeaMäng.setResizable(true);
 
 		PeaMäng.hide();
 		mängijaaken.show();
@@ -281,12 +277,7 @@ public class Yatzy extends Application {
 
 	// MEETOD KONTROLLIMAKS, KAS KÕIK PUNKTIKOHAD ON TÄIDETUD. KUI JAH; SIIS
 	// LISAB PUNKTIDE LÕPPU KOGUSKOORI
-	private void Lõpukontroll(final VBox punktiala) {
-		if (Täringud.korraloendur == 6) {
-			Text kokku = new Text("Kokku: " + Täringud.koguskoor);
-			punktiala.getChildren().add(kokku);
-		}
-	}
+	String mängijanimi;
 
 	// Meetod koodi, mis nullib ja lisab juurde asju enne järgmist veeretamist
 	private void PealePunkte(final VBox punktiala) {
@@ -295,7 +286,10 @@ public class Yatzy extends Application {
 		Täringud.koguskoor += Täringud.skoor;
 		Täringud.skoor = 0;
 		Täringud.korraloendur += 1;
-		Lõpukontroll(punktiala);
+		if (Täringud.korraloendur == 6) {
+			Text kokku = new Text("Mängija: " + "\n" + mängijanimi + "\nskoor kokku:\n" + Täringud.koguskoor);
+			punktiala.getChildren().add(kokku);
+		}
 	}
 
 	public static void main(String[] args) {
