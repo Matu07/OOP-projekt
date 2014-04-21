@@ -62,9 +62,9 @@ public class Yatzy extends Application {
 	    HBox põhiülemine = new HBox();
 	    põhiülemine.setPadding(new Insets(10));
 	    Text yatzymäng = new Text("Yatzy mäng");
-	  	yatzymäng.setFont(Font.font("Ariel", 20));
+	  	yatzymäng.setFont(Font.font("Ariel", 18));
 	  	yatzymäng.setUnderline(true);
-	  	Text eesmärk = new Text("\n\nMängu eesmärk on saada võimalikult palju\n ettenähtud väärtusega täringuviskeid.");
+	  	Text eesmärk = new Text("\n\nMängu eesmärk on saada võimalikult palju\nettenähtud väärtusega täringuviskeid.");
 	  	põhiülemine.getChildren().addAll(yatzymäng, eesmärk);
 	  	
 	  	//PÕHIALA KESKMINE MÄNGUOSA
@@ -80,7 +80,7 @@ public class Yatzy extends Application {
 	    põhikesk.getChildren().addAll(ajutine2);
 	    ImageView iv1 = new ImageView();
 	    //Miskipärast pildi import ei õnnestu
-        //iv1.setImage(Numbrid.täring1);
+        iv1.setImage(Numbrid.täring1);
 	  	
 	    põhitäringud.getChildren().addAll(iv1, ajutine2);
 	  	
