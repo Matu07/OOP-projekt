@@ -76,12 +76,35 @@ public class Yatzy extends Application {
 	  	//PÕHIALA ALUMINE TÄRINGUTEGA OSA
 	  	HBox põhitäringud = new HBox();
 	    põhitäringud.setPadding(new Insets(10));
-	    Text ajutine2 = new Text("Siia tulevad täringute kujutised");
-	    põhikesk.getChildren().addAll(ajutine2);
+	    põhitäringud.setStyle("-fx-background-color: ghostwhite");
+	    
 	    ImageView iv1 = new ImageView();
         iv1.setImage(Numbrid.täring1);
+        iv1.setFitWidth(75);
+        iv1.setPreserveRatio(true);
+        ImageView iv2 = new ImageView();
+        iv2.setImage(Numbrid.täring2);
+        iv2.setFitWidth(75);
+        iv2.setPreserveRatio(true);
+        ImageView iv3 = new ImageView();
+        iv3.setImage(Numbrid.täring3);
+        iv3.setFitWidth(75);
+        iv3.setPreserveRatio(true);
+        ImageView iv4 = new ImageView();
+        iv4.setImage(Numbrid.täring4);
+        iv4.setFitWidth(75);
+        iv4.setPreserveRatio(true);
+        ImageView iv5 = new ImageView();
+        iv5.setImage(Numbrid.täring5);
+        iv5.setFitWidth(75);
+        iv5.setPreserveRatio(true);
+        ImageView iv6 = new ImageView();
+        iv6.setImage(Numbrid.täring6);
+        iv6.setFitWidth(75);
+        iv6.setPreserveRatio(true);
+        
 	  	
-	    põhitäringud.getChildren().addAll(iv1, ajutine2);
+	    põhitäringud.getChildren().addAll(iv1, iv2, iv3, iv4, iv5, iv6);
 	  	
 	    põhiala.setTop(põhiülemine);
 	    põhiala.setCenter(põhikesk);
