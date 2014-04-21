@@ -9,10 +9,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -20,6 +23,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Yatzy extends Application {
+
 
 	@Override
 	public void start(final Stage PeaMäng) {
@@ -50,13 +54,29 @@ public class Yatzy extends Application {
 	    punktiala.getChildren().addAll(punktid,ühed,kahed, kolmed,neljad,viied,kuued);
 	    punktiala.setStyle("-fx-background-color: ghostwhite");
 	    
-	    //TEKSTIALA
-	    HBox tekstiala = new HBox();
-	  	tekstiala.setPadding(new Insets(10));
-	  	Text yatzymäng = new Text("Yatzy mäng");
+	    //PÕHIALA
+	    BorderPane põhiala = new BorderPane();
+	    põhiala.setPadding(new Insets(10));
+	    
+	    //PÕHIALA ÜLEMINE TEKSTIOSA
+	    HBox põhiülemine = new HBox();
+	    põhiülemine.setPadding(new Insets(10));
+	    Text yatzymäng = new Text("Yatzy mäng");
 	  	yatzymäng.setFont(Font.font("Ariel", 20));
 	  	yatzymäng.setUnderline(true);
-	  	tekstiala.getChildren().add(yatzymäng);
+	  	Text eesmärk = new Text("\n\nMängu eesmärk on saada võimalikult palju\n ettenähtud väärtusega täringuviskeid.");
+	  	põhiülemine.getChildren().addAll(yatzymäng, eesmärk);
+	  	
+	  	//PÕHIALA ALUMINE TÄRINGUTEGA OSA
+	  	HBox põhitäringud = new HBox();
+	    põhitäringud.setPadding(new Insets(10));
+	    ImageView iv1 = new ImageView();
+	    //Miskipärast pildi import ei õnnestu
+        //iv1.setImage(Numbrid.täring1);
+	  	
+	    põhitäringud.getChildren().add(iv1);
+	  	
+	    põhiala.getChildren().addAll(põhiülemine, põhitäringud);
 	  	
 		
 		//NUPPUDE ALA
@@ -79,7 +99,7 @@ public class Yatzy extends Application {
 	    BorderPane mänguala = new BorderPane();
 	    mänguala.setLeft(punktiala);
 	    mänguala.setBottom(nuppudeala);
-	    mänguala.setCenter(tekstiala);
+	    mänguala.setCenter(põhiala);
 		
 
 		// MÄNGIJANIME EI SISESTATUD

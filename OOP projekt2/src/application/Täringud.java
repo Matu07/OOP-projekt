@@ -7,38 +7,38 @@ public class Täringud extends Numbrid {
 
 	static int Täring(int arv) {
 		if (arv == 1) {
-			Täring1 = (int) Math.round(Math.random() * 5 + 1);
-			return Täring1;
+			täring1 = (int) Math.round(Math.random() * 5 + 1);
+			return täring1;
 		} else if (arv == 2) {
-			Täring2 = (int) Math.round(Math.random() * 5 + 1);
-			return Täring2;
+			täring2 = (int) Math.round(Math.random() * 5 + 1);
+			return täring2;
 		} else if (arv == 3) {
-			Täring3 = (int) Math.round(Math.random() * 5 + 1);
-			return Täring3;
+			täring3 = (int) Math.round(Math.random() * 5 + 1);
+			return täring3;
 		} else if (arv == 4) {
-			Täring4 = (int) Math.round(Math.random() * 5 + 1);
-			return Täring4;
+			täring4 = (int) Math.round(Math.random() * 5 + 1);
+			return täring4;
 		} else if (arv == 5) {
-			Täring5 = (int) Math.round(Math.random() * 5 + 1);
-			return Täring5;
+			täring5 = (int) Math.round(Math.random() * 5 + 1);
+			return täring5;
 		} else {
 			System.out.println("VALE VÄÄRTUS");
 			return 0;
 		}
 	};
 
-	static int Täring1;
-	static int Täring2;
-	static int Täring3;
-	static int Täring4;
-	static int Täring5;
+	static int täring1;
+	static int täring2;
+	static int täring3;
+	static int täring4;
+	static int täring5;
 
 	static void Näitamine() {
-		Number(Täring1);
-		Number(Täring2);
-		Number(Täring3);
-		Number(Täring4);
-		Number(Täring5);
+		Number(täring1);
+		Number(täring2);
+		Number(täring3);
+		Number(täring4);
+		Number(täring5);
 	}
 
 	static int pakutud = 0;
@@ -60,9 +60,6 @@ public class Täringud extends Numbrid {
 		int lõplik3 = 0;
 		int lõplik4 = 0;
 		int lõplik5 = 0;
-		System.out.println("Yatzy mäng");
-		System.out
-				.println("Praeguste raundide eesmärk on saada võimalikult palju ettenähtud väärtusega täringuviskeid.");
 		try {
 			TimeUnit.SECONDS.sleep(5);
 		} catch (InterruptedException e) {
@@ -107,11 +104,11 @@ public class Täringud extends Numbrid {
 			Näitamine();
 
 			// Skoori arvutamise osa
-			lõplik1 = Täring1;
-			lõplik2 = Täring2;
-			lõplik3 = Täring3;
-			lõplik4 = Täring4;
-			lõplik5 = Täring5;
+			lõplik1 = täring1;
+			lõplik2 = täring2;
+			lõplik3 = täring3;
+			lõplik4 = täring4;
+			lõplik5 = täring5;
 
 			if (lõplik1 == x) {
 				Raundiskoor = Raundiskoor + x;
