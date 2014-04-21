@@ -152,10 +152,35 @@ public class Yatzy extends Application {
 		nuppudeala.setAlignment(Pos.CENTER);
 
 		Button vahetus1 = new Button("VAHETA 1.");
+		vahetus1.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent me) {
+				Täringud.vaheta1=1;
+			}
+		});
 		Button vahetus2 = new Button("VAHETA 2.");
+		vahetus1.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent me) {
+				Täringud.vaheta2=1;
+			}
+		});
 		Button vahetus3 = new Button("VAHETA 3.");
+		vahetus1.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent me) {
+				Täringud.vaheta3=1;
+			}
+		});
 		Button vahetus4 = new Button("VAHETA 4.");
+		vahetus1.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent me) {
+				Täringud.vaheta4=1;
+			}
+		});
 		Button vahetus5 = new Button("VAHETA 5.");
+		vahetus1.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent me) {
+				Täringud.vaheta5=1;
+			}
+		});
 		
 		Button veereta = new Button("VEERETA TÄRINGUID");
 		veereta.setOnMouseClicked(new EventHandler<MouseEvent>() {
