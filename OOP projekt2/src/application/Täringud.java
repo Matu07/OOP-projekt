@@ -1,7 +1,5 @@
 package application;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -68,5 +66,23 @@ public class Täringud extends Numbrid {
 		Abitsükkel(iv5);
 		o.getChildren().addAll(iv1, iv2, iv3, iv4, iv5);
 	}
+	static void LeiaArv(int arv) {
+	if (Täringud.täring1 == arv) {
+		Täringud.skoor += Täringud.täring1;
+	}
+	if (Täringud.täring2 == arv) {
+		Täringud.skoor += Täringud.täring2;
+	}
+	if (Täringud.täring3 == arv) {
+		Täringud.skoor += Täringud.täring3;
+	}
+	if (Täringud.täring4 == arv) {
+		Täringud.skoor += Täringud.täring4;
+	}
+	if (Täringud.täring5 == arv) {
+		Täringud.skoor += Täringud.täring5;
+	}
+	
+	
 
-}
+}}
