@@ -13,7 +13,7 @@ public class test extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) {
-		Image täring1 = new Image("C:\\Users\\Martin\\git\\OOP-projekt\\OOP projekt2\\src\\application\\Täring1.jpg", true);
+		Image täring1 = new Image("/application/Täring1.jpg");
 		ImageView iv1 = new ImageView();
         iv1.setImage(täring1);	
         

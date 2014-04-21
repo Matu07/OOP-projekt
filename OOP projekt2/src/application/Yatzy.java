@@ -79,7 +79,6 @@ public class Yatzy extends Application {
 	    Text ajutine2 = new Text("Siia tulevad täringute kujutised");
 	    põhikesk.getChildren().addAll(ajutine2);
 	    ImageView iv1 = new ImageView();
-	    //Miskipärast pildi import ei õnnestu
         iv1.setImage(Numbrid.täring1);
 	  	
 	    põhitäringud.getChildren().addAll(iv1, ajutine2);

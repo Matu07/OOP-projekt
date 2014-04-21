@@ -7,12 +7,12 @@ import javafx.scene.image.Image;
 public class Numbrid{
 	//Täringute kujutised, mis seotakse väärtustega
 
-	static Image täring1 = new Image("Täring1.jpg");
-	static Image täring2 = new Image("Täring2.jpg");
-	static Image täring3 = new Image("Täring3.jpg");
-	static Image täring4 = new Image("Täring4.jpg");
-	static Image täring5 = new Image("Täring5.jpg");
-	static Image täring6 = new Image("Täring6.jpg");
+	static Image täring1 = new Image("/application/Täring1.jpg");
+	static Image täring2 = new Image("/application/Täring2.jpg");
+	static Image täring3 = new Image("/application/Täring3.jpg");
+	static Image täring4 = new Image("/application/Täring4.jpg");
+	static Image täring5 = new Image("/application/Täring5.jpg");
+	static Image täring6 = new Image("/application/Täring6.jpg");
 	 static void Number(int number){
 		 if (number == 1) {
 			System.out.println(" ___");
