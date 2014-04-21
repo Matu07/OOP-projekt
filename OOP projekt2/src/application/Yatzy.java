@@ -76,7 +76,8 @@ public class Yatzy extends Application {
 	  	
 	    põhitäringud.getChildren().add(iv1);
 	  	
-	    põhiala.getChildren().addAll(põhiülemine, põhitäringud);
+	    põhiala.setTop(põhiülemine);
+	    põhiala.setBottom(põhitäringud);
 	  	
 		
 		//NUPPUDE ALA
