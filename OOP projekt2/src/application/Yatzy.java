@@ -27,25 +27,19 @@ public class Yatzy extends Application {
 
 	@Override
 	public void start(final Stage PeaMäng) {
-		Text ühed = new Text("Ühed");
+		final Text ühed = new Text("Ühed");
 		Text kahed = new Text("Kahed");
 		Text kolmed = new Text("Kolmed");
 		Text neljad = new Text("Neljad");
 		Text viied = new Text("Viied");
 		Text kuued = new Text("Kuued");
-
-		ühed.setOnMouseClicked(new EventHandler<MouseEvent>() {
-			public void handle(MouseEvent me) {
-				System.out.println("TULEB ÜHTEDE KOGUSUMMA ! ! ! ! ! ! !");
-
-			}
-		});
+		final int skoor = 0;
 		
 		
 		
 		//PUNKTIDE ALA
 
-		VBox punktiala = new VBox(40);
+		final VBox punktiala = new VBox(40);
 		punktiala.setPadding(new Insets(10));
 		Text punktid = new Text("Punktid");
 		punktid.setFont(Font.font("Ariel", 20));
@@ -53,6 +47,18 @@ public class Yatzy extends Application {
 		
 	    punktiala.getChildren().addAll(punktid,ühed,kahed, kolmed,neljad,viied,kuued);
 	    punktiala.setStyle("-fx-background-color: ghostwhite");
+	    
+	    ühed.setOnMouseClicked(new EventHandler<MouseEvent>() {
+	    	public void handle(MouseEvent me) {
+	    		if (Täringud.veeretus ==2) {
+	    			punktiala.getChildren().remove(ühed);
+	    			Text ühedlõplik = new Text("Ühed: " + skoor);
+	    			punktiala.getChildren().add(1, ühedlõplik);
+	    		}
+	    	}
+	    });
+	    
+	    
 	    
 	    //PÕHIALA
 	    final BorderPane põhiala = new BorderPane();
@@ -84,35 +90,48 @@ public class Yatzy extends Application {
 	    nuppudeala.setPadding(new Insets(40));
 	    nuppudeala.setAlignment(Pos.CENTER);
 	    
+	    
+	    
+	    
 	    Button veereta = new Button("VEERETA TÄRINGUID");
 	    veereta.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent me) {
 				//NÄITAB NUPUVAJUTUSE PEALE TÄRINGUID, ESIALGU JÄRJEST JA KORDUV VAJUTUS TEKITAB JAMA
+				if (Täringud.veeretus == 1) {
+					põhitäringud.getChildren().clear();
+					Täringud.veeretus+=1;
+				}
+				if (Täringud.veeretus ==2) {
+					põhitäringud.getChildren().clear();
+					Täringud.veeretus=0;
+					
+				}
 				ImageView iv1 = new ImageView();
-		        iv1.setImage(Numbrid.täring1);
+		        iv1.setImage(Numbrid.Number((int) Math.round(Math.random() * 5 + 1)));
 		        iv1.setFitWidth(75);
 		        iv1.setPreserveRatio(true);
 		        ImageView iv2 = new ImageView();
-		        iv2.setImage(Numbrid.täring2);
+		        iv2.setImage(Numbrid.Number((int) Math.round(Math.random() * 5 + 1)));
 		        iv2.setFitWidth(75);
 		        iv2.setPreserveRatio(true);
 		        ImageView iv3 = new ImageView();
-		        iv3.setImage(Numbrid.täring3);
+		        iv3.setImage(Numbrid.Number((int) Math.round(Math.random() * 5 + 1)));
 		        iv3.setFitWidth(75);
 		        iv3.setPreserveRatio(true);
 		        ImageView iv4 = new ImageView();
-		        iv4.setImage(Numbrid.täring4);
+		        iv4.setImage(Numbrid.Number((int) Math.round(Math.random() * 5 + 1)));
 		        iv4.setFitWidth(75);
 		        iv4.setPreserveRatio(true);
 		        ImageView iv5 = new ImageView();
-		        iv5.setImage(Numbrid.täring5);
+		        iv5.setImage(Numbrid.Number((int) Math.round(Math.random() * 5 + 1)));
 		        iv5.setFitWidth(75);
 		        iv5.setPreserveRatio(true);
 		        ImageView iv6 = new ImageView();
-		        iv6.setImage(Numbrid.täring6);
+		        iv6.setImage(Numbrid.Number((int) Math.round(Math.random() * 5 + 1)));
 		        iv6.setFitWidth(72);
 		        iv6.setPreserveRatio(true);
 				põhitäringud.getChildren().addAll(iv1, iv2, iv3, iv4, iv5, iv6);
+				Täringud.veeretus+=1;
 				
 			}
 	    });

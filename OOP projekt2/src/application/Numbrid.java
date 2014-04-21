@@ -13,51 +13,24 @@ public class Numbrid{
 	static Image täring4 = new Image("/application/Täring4.jpg");
 	static Image täring5 = new Image("/application/Täring5.jpg");
 	static Image täring6 = new Image("/application/Täring6.jpg");
-	 static void Number(int number){
+	 static Image Number(int number){
 		 if (number == 1) {
-			System.out.println(" ___");
-			System.out.println("|   |");
-			System.out.println("| . |");
-			System.out.println("|   |");
-			System.out.println(" ¯¯¯"); 
+			return täring1;
 		 }
 		 else if (number == 2) {
-			System.out.println(" ___");
-			System.out.println("|.  |");
-			System.out.println("|   |");
-			System.out.println("|  .|");
-			System.out.println(" ¯¯¯");
+			return täring2;
 		 }
 		 else if (number == 3) {
-			System.out.println(" ___");
-			System.out.println("|.  |");
-			System.out.println("| . |");
-			System.out.println("|  .|");
-			System.out.println(" ¯¯¯");
+			return täring3;
 		 }
 		 else if (number == 4) {
-			System.out.println(" ___");
-			System.out.println("|. .|");
-			System.out.println("|   |");
-			System.out.println("|. .|");
-			System.out.println(" ¯¯¯");
+			return täring4;
 		 }
 		 else if (number == 5) {
-			System.out.println(" ___");
-			System.out.println("|. .|");
-			System.out.println("| . |");
-			System.out.println("|. .|");
-			System.out.println(" ¯¯¯");
-		 }
-		 else if (number ==6) {
-			System.out.println(" ___");
-			System.out.println("|. .|");
-			System.out.println("|. .|");
-			System.out.println("|. .|");
-			System.out.println(" ¯¯¯");
+			return täring5;
 		 }
 		 else {
-			 System.out.println("Vale väärtus!!!");
+			return täring6;
 		 }
 	}
 	 

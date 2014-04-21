@@ -4,7 +4,9 @@ import java.util.concurrent.TimeUnit;
 
 public class Täringud extends Numbrid {
 
-
+	
+	static int veeretus;
+	
 	static int Täring(int arv) {
 		if (arv == 1) {
 			täring1 = (int) Math.round(Math.random() * 5 + 1);
