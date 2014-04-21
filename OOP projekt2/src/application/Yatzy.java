@@ -67,16 +67,25 @@ public class Yatzy extends Application {
 	  	Text eesmärk = new Text("\n\nMängu eesmärk on saada võimalikult palju\n ettenähtud väärtusega täringuviskeid.");
 	  	põhiülemine.getChildren().addAll(yatzymäng, eesmärk);
 	  	
+	  	//PÕHIALA KESKMINE MÄNGUOSA
+	  	VBox põhikesk = new VBox();
+	    põhikesk.setPadding(new Insets(10));
+	    Text ajutine1 = new Text("Siin hakkab jooksma mänguinfo");
+	    põhikesk.getChildren().addAll(ajutine1);
+	  	
 	  	//PÕHIALA ALUMINE TÄRINGUTEGA OSA
 	  	HBox põhitäringud = new HBox();
 	    põhitäringud.setPadding(new Insets(10));
+	    Text ajutine2 = new Text("Siia tulevad täringute kujutised");
+	    põhikesk.getChildren().addAll(ajutine2);
 	    ImageView iv1 = new ImageView();
 	    //Miskipärast pildi import ei õnnestu
         //iv1.setImage(Numbrid.täring1);
 	  	
-	    põhitäringud.getChildren().add(iv1);
+	    põhitäringud.getChildren().addAll(iv1, ajutine2);
 	  	
 	    põhiala.setTop(põhiülemine);
+	    põhiala.setCenter(põhikesk);
 	    põhiala.setBottom(põhitäringud);
 	  	
 		
