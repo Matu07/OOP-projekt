@@ -73,7 +73,14 @@ public class Yatzy extends Application {
 	    			punktiala.getChildren().add(1, ühedlõplik);
 	    			Täringud.punktide_lisamine = 0;
 	    			Täringud.veeretus=0;
+	    			Täringud.koguskoor+=Täringud.skoor;
 	    			Täringud.skoor=0;
+	    			Täringud.korraloendur+=1;
+	    			System.out.println(Täringud.koguskoor);
+	    			if (Täringud.korraloendur ==6) {
+	    				Text kokku = new Text("Kokku: " + Täringud.koguskoor);
+	    				punktiala.getChildren().add(kokku);
+	    			}
 	    		}
 	    	}
 	    });
@@ -102,9 +109,14 @@ public class Yatzy extends Application {
 	    			punktiala.getChildren().add(2, kahedlõplik);
 	    			Täringud.punktide_lisamine = 0;
 	    			Täringud.veeretus=0;
-	    			System.out.println(Täringud.veeretus);
-	    			System.out.println(Täringud.punktide_lisamine);
+	    			Täringud.koguskoor+=Täringud.skoor;
 	    			Täringud.skoor=0;
+	    			System.out.println(Täringud.koguskoor);
+	    			Täringud.korraloendur+=1;
+	    			if (Täringud.korraloendur ==6) {
+	    				Text kokku = new Text("Kokku: " + Täringud.koguskoor);
+	    				punktiala.getChildren().add(kokku);
+	    			}
 
 	    		}
 	    	}
@@ -134,7 +146,14 @@ public class Yatzy extends Application {
 	    			punktiala.getChildren().add(3, kolmedlõplik);
 	    			Täringud.punktide_lisamine = 0;
 	    			Täringud.veeretus=0;
+	    			Täringud.koguskoor+=Täringud.skoor;
 	    			Täringud.skoor=0;
+	    			Täringud.korraloendur+=1;
+	    			System.out.println(Täringud.koguskoor);
+	    			if (Täringud.korraloendur ==6) {
+	    				Text kokku = new Text("Kokku: " + Täringud.koguskoor);
+	    				punktiala.getChildren().add(kokku);
+	    			}
 
 	    		}
 	    	}
@@ -164,7 +183,14 @@ public class Yatzy extends Application {
 	    			punktiala.getChildren().add(4, neljadlõplik);
 	    			Täringud.punktide_lisamine = 0;
 	    			Täringud.veeretus=0;
+	    			Täringud.koguskoor+=Täringud.skoor;
 	    			Täringud.skoor=0;
+	    			Täringud.korraloendur+=1;
+	    			System.out.println(Täringud.koguskoor);
+	    			if (Täringud.korraloendur ==6) {
+	    				Text kokku = new Text("Kokku: " + Täringud.koguskoor);
+	    				punktiala.getChildren().add(kokku);
+	    			}
 
 	    		}
 	    	}
@@ -194,7 +220,14 @@ public class Yatzy extends Application {
 	    			punktiala.getChildren().add(5, viiedlõplik);
 	    			Täringud.punktide_lisamine = 0;
 	    			Täringud.veeretus=0;
+	    			Täringud.koguskoor+=Täringud.skoor;
 	    			Täringud.skoor=0;
+	    			Täringud.korraloendur+=1;
+	    			System.out.println(Täringud.koguskoor);
+	    			if (Täringud.korraloendur ==6) {
+	    				Text kokku = new Text("Kokku: " + Täringud.koguskoor);
+	    				punktiala.getChildren().add(kokku);
+	    			}
 
 	    		}
 	    	}
@@ -224,7 +257,13 @@ public class Yatzy extends Application {
 	    			punktiala.getChildren().add(6, kuuedlõplik);
 	    			Täringud.punktide_lisamine = 0;
 	    			Täringud.veeretus=0;
+	    			Täringud.koguskoor+=Täringud.skoor;
 	    			Täringud.skoor=0;
+	    			Täringud.korraloendur+=1;
+	    			if (Täringud.korraloendur ==6) {
+	    				Text kokku = new Text("Kokku: " + Täringud.koguskoor);
+	    				punktiala.getChildren().add(kokku);
+	    			}
 
 	    		}
 	    	}
@@ -268,10 +307,8 @@ public class Yatzy extends Application {
 	    Button veereta = new Button("VEERETA TÄRINGUID");
 	    veereta.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent me) {
-				System.out.println("JÕUDSIN SIIA");
 				//NÄITAB NUPUVAJUTUSE PEALE TÄRINGUID, ESIALGU JÄRJEST JA KORDUV VAJUTUS TEKITAB JAMA
 				if (Täringud.punktide_lisamine==0) {
-					System.out.println("JÕUDSIN SIIA KA");
 					if (Täringud.veeretus == 1) {
 						põhitäringud.getChildren().clear();
 						Täringud.Veeretamine();

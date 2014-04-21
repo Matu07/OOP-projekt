@@ -16,6 +16,8 @@ public class Täringud extends Numbrid {
 	static ImageView iv4 = new ImageView();
 	static ImageView iv5 = new ImageView();
 	static int skoor;
+	static int korraloendur=0;
+	static int koguskoor;
 
 	static int Täring(int arv) {
 		if (arv == 1) {
