@@ -148,7 +148,7 @@ public class Yatzy extends Application {
 
 		// NUPPUDE ALA
 		HBox nuppudeala = new HBox();
-		nuppudeala.setPadding(new Insets(40));
+		nuppudeala.setPadding(new Insets(10));
 		nuppudeala.setAlignment(Pos.CENTER);
 
 		Button vahetus1 = new Button("VAHETA 1.");
@@ -182,7 +182,7 @@ public class Yatzy extends Application {
 			}
 		});
 		
-		Button veereta = new Button("VEERETA TÄRINGUID");
+		Button veereta = new Button("VEERETA!");
 		veereta.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent me) {
 				// NÄITAB NUPUVAJUTUSE PEALE TÄRINGUID, ESIALGU JÄRJEST JA
@@ -212,7 +212,7 @@ public class Yatzy extends Application {
 			}
 		});
 
-		Button lõpeta = new Button("LÕPETA MÄNG");
+		Button lõpeta = new Button("VÄLJU");
 		lõpeta.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent me) {
 				PeaMäng.hide();
