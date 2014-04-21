@@ -21,7 +21,6 @@ import javafx.stage.Stage;
 
 public class Yatzy extends Application {
 
-
 	@Override
 	public void start(final Stage PeaMäng) {
 		final Text ühed = new Text("Ühed");
@@ -31,188 +30,177 @@ public class Yatzy extends Application {
 		final Text viied = new Text("Viied");
 		final Text kuued = new Text("Kuued");
 
-
-		
-		//PUNKTIDE ALA
+		// PUNKTIDE ALA
 
 		final VBox punktiala = new VBox(40);
 		punktiala.setPadding(new Insets(10));
 		Text punktid = new Text("Punktid");
 		punktid.setFont(Font.font("Ariel", 20));
 		punktid.setUnderline(true);
-		
-	    punktiala.getChildren().addAll(punktid,ühed,kahed, kolmed,neljad,viied,kuued);
-	    punktiala.setStyle("-fx-background-color: ghostwhite");
-	    
 
-	    
-	    ühed.setOnMouseClicked(new EventHandler<MouseEvent>() {
-	    	public void handle(MouseEvent me) {
-	    		if (Täringud.veeretus ==2) {
-	    			Täringud.LeiaArv(1);
-	    			punktiala.getChildren().remove(ühed);
-	    			Text ühedlõplik = new Text("Ühed: " + Täringud.skoor);
-	    			punktiala.getChildren().add(1, ühedlõplik);
-	    			PealePunkte(punktiala);
-	    			Lõpukontroll(punktiala);
-	    		}
-	    	}
-	    });
-	    
-	    kahed.setOnMouseClicked(new EventHandler<MouseEvent>() {
-	    	public void handle(MouseEvent me) {
-	    		if (Täringud.veeretus ==2) {
-	    			Täringud.LeiaArv(2);
-	    			punktiala.getChildren().remove(kahed);
-	    			Text kahedlõplik = new Text("Kahed: " + Täringud.skoor);
-	    			punktiala.getChildren().add(2, kahedlõplik);
-	    			PealePunkte(punktiala);
-	    			Lõpukontroll(punktiala);
+		punktiala.getChildren().addAll(punktid, ühed, kahed, kolmed, neljad,
+				viied, kuued);
+		punktiala.setStyle("-fx-background-color: ghostwhite");
 
-	    		}
-	    	}
-	    });
-	    
-	    kolmed.setOnMouseClicked(new EventHandler<MouseEvent>() {
-	    	public void handle(MouseEvent me) {
-	    		if (Täringud.veeretus ==2) {
-	    			Täringud.LeiaArv(3);
-	    			punktiala.getChildren().remove(kolmed);
-	    			Text kolmedlõplik = new Text("Kolmed: " + Täringud.skoor);
-	    			punktiala.getChildren().add(3, kolmedlõplik);
-	    			PealePunkte(punktiala);
-	    			Lõpukontroll(punktiala);
-
-	    		}
-	    	}
-	    });
-	    
-	    neljad.setOnMouseClicked(new EventHandler<MouseEvent>() {
-	    	public void handle(MouseEvent me) {
-	    		if (Täringud.veeretus ==2) {
-	    			Täringud.LeiaArv(4);
-	    			punktiala.getChildren().remove(neljad);
-	    			Text neljadlõplik = new Text("Neljad: " + Täringud.skoor);
-	    			punktiala.getChildren().add(4, neljadlõplik);
-	    			PealePunkte(punktiala);
-
-	    		}
-	    	}
-
-	    });
-	    
-	    viied.setOnMouseClicked(new EventHandler<MouseEvent>() {
-	    	public void handle(MouseEvent me) {
-	    		if (Täringud.veeretus ==2) {
-	    			Täringud.LeiaArv(5);
-	    			punktiala.getChildren().remove(viied);
-	    			Text viiedlõplik = new Text("Viied: " + Täringud.skoor);
-	    			punktiala.getChildren().add(5, viiedlõplik);
-	    			PealePunkte(punktiala);
-	    			Lõpukontroll(punktiala);
-
-	    		}
-	    	}
-	    });
-	    
-	    kuued.setOnMouseClicked(new EventHandler<MouseEvent>() {
-	    	public void handle(MouseEvent me) {
-	    		if (Täringud.veeretus ==2) {
-	    			Täringud.LeiaArv(6);
-	    			punktiala.getChildren().remove(kuued);
-	    			Text kuuedlõplik = new Text("Kuued: " + Täringud.skoor);
-	    			punktiala.getChildren().add(6, kuuedlõplik);
-	    			PealePunkte(punktiala);
-	    			Lõpukontroll(punktiala);
-
-	    		}
-	    	}
-	    });
-	    
-	    
-	    
-	    //PÕHIALA
-	    final BorderPane põhiala = new BorderPane();
-	    põhiala.setPadding(new Insets(10));
-	    
-	    //PÕHIALA ÜLEMINE TEKSTIOSA
-	    HBox põhiülemine = new HBox();
-	    põhiülemine.setPadding(new Insets(10));
-	    Text yatzymäng = new Text("Yatzy mäng");
-	  	yatzymäng.setFont(Font.font("Ariel", 18));
-	  	yatzymäng.setUnderline(true);
-	  	Text eesmärk = new Text("\n\nMängu eesmärk on saada võimalikult palju\nettenähtud väärtusega täringuviskeid.");
-	  	põhiülemine.getChildren().addAll(yatzymäng, eesmärk);
-	  	
-	  	//PÕHIALA KESKMINE MÄNGUOSA
-	  	VBox põhikesk = new VBox();
-	    põhikesk.setPadding(new Insets(10));
-	    Text ajutine1 = new Text("Siin hakkab jooksma mänguinfo");
-	    põhikesk.getChildren().addAll(ajutine1);
-	  	
-	  	//PÕHIALA ALUMINE TÄRINGUTEGA OSA
-	  	final HBox põhitäringud = new HBox();
-	    põhitäringud.setPadding(new Insets(10));
-	    põhitäringud.setStyle("-fx-background-color: ghostwhite");
-	    
-		
-		//NUPPUDE ALA
-	    HBox nuppudeala = new HBox();
-	    nuppudeala.setPadding(new Insets(40));
-	    nuppudeala.setAlignment(Pos.CENTER);
-	    
-	    
-	    
-	    
-	    Button veereta = new Button("VEERETA TÄRINGUID");
-	    veereta.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		ühed.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent me) {
-				//NÄITAB NUPUVAJUTUSE PEALE TÄRINGUID, ESIALGU JÄRJEST JA KORDUV VAJUTUS TEKITAB JAMA
-				if (Täringud.punktide_lisamine==0) {
+				if (Täringud.veeretus == 2) {
+					Täringud.LeiaArv(1);
+					punktiala.getChildren().remove(ühed);
+					Text ühedlõplik = new Text("Ühed: " + Täringud.skoor);
+					punktiala.getChildren().add(1, ühedlõplik);
+					PealePunkte(punktiala);
+					Lõpukontroll(punktiala);
+				}
+			}
+		});
+
+		kahed.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent me) {
+				if (Täringud.veeretus == 2) {
+					Täringud.LeiaArv(2);
+					punktiala.getChildren().remove(kahed);
+					Text kahedlõplik = new Text("Kahed: " + Täringud.skoor);
+					punktiala.getChildren().add(2, kahedlõplik);
+					PealePunkte(punktiala);
+					Lõpukontroll(punktiala);
+
+				}
+			}
+		});
+
+		kolmed.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent me) {
+				if (Täringud.veeretus == 2) {
+					Täringud.LeiaArv(3);
+					punktiala.getChildren().remove(kolmed);
+					Text kolmedlõplik = new Text("Kolmed: " + Täringud.skoor);
+					punktiala.getChildren().add(3, kolmedlõplik);
+					PealePunkte(punktiala);
+					Lõpukontroll(punktiala);
+
+				}
+			}
+		});
+
+		neljad.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent me) {
+				if (Täringud.veeretus == 2) {
+					Täringud.LeiaArv(4);
+					punktiala.getChildren().remove(neljad);
+					Text neljadlõplik = new Text("Neljad: " + Täringud.skoor);
+					punktiala.getChildren().add(4, neljadlõplik);
+					PealePunkte(punktiala);
+
+				}
+			}
+
+		});
+
+		viied.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent me) {
+				if (Täringud.veeretus == 2) {
+					Täringud.LeiaArv(5);
+					punktiala.getChildren().remove(viied);
+					Text viiedlõplik = new Text("Viied: " + Täringud.skoor);
+					punktiala.getChildren().add(5, viiedlõplik);
+					PealePunkte(punktiala);
+					Lõpukontroll(punktiala);
+
+				}
+			}
+		});
+
+		kuued.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent me) {
+				if (Täringud.veeretus == 2) {
+					Täringud.LeiaArv(6);
+					punktiala.getChildren().remove(kuued);
+					Text kuuedlõplik = new Text("Kuued: " + Täringud.skoor);
+					punktiala.getChildren().add(6, kuuedlõplik);
+					PealePunkte(punktiala);
+					Lõpukontroll(punktiala);
+
+				}
+			}
+		});
+
+		// PÕHIALA
+		final BorderPane põhiala = new BorderPane();
+		põhiala.setPadding(new Insets(10));
+
+		// PÕHIALA ÜLEMINE TEKSTIOSA
+		HBox põhiülemine = new HBox();
+		põhiülemine.setPadding(new Insets(10));
+		Text yatzymäng = new Text("Yatzy mäng");
+		yatzymäng.setFont(Font.font("Ariel", 18));
+		yatzymäng.setUnderline(true);
+		Text eesmärk = new Text(
+				"\n\nMängu eesmärk on saada võimalikult palju\nettenähtud väärtusega täringuviskeid.");
+		põhiülemine.getChildren().addAll(yatzymäng, eesmärk);
+
+		// PÕHIALA KESKMINE MÄNGUOSA
+		VBox põhikesk = new VBox();
+		põhikesk.setPadding(new Insets(10));
+		Text ajutine1 = new Text("Siin hakkab jooksma mänguinfo");
+		põhikesk.getChildren().addAll(ajutine1);
+
+		// PÕHIALA ALUMINE TÄRINGUTEGA OSA
+		final HBox põhitäringud = new HBox();
+		põhitäringud.setPadding(new Insets(10));
+		põhitäringud.setStyle("-fx-background-color: ghostwhite");
+
+		// NUPPUDE ALA
+		HBox nuppudeala = new HBox();
+		nuppudeala.setPadding(new Insets(40));
+		nuppudeala.setAlignment(Pos.CENTER);
+
+		Button veereta = new Button("VEERETA TÄRINGUID");
+		veereta.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent me) {
+				// NÄITAB NUPUVAJUTUSE PEALE TÄRINGUID, ESIALGU JÄRJEST JA
+				// KORDUV VAJUTUS TEKITAB JAMA
+				if (Täringud.punktide_lisamine == 0) {
 					if (Täringud.veeretus == 1) {
 						põhitäringud.getChildren().clear();
 						Täringud.Veeretamine();
 						Täringud.Näitamine(põhitäringud);
-						Täringud.veeretus+=1;				
-						}
-					else if (Täringud.veeretus ==2) {
+						Täringud.veeretus += 1;
+					} else if (Täringud.veeretus == 2) {
 						põhitäringud.getChildren().clear();
 						Täringud.Veeretamine();
 						Täringud.Näitamine(põhitäringud);
-						Täringud.punktide_lisamine=1;
-						
-					}
-					else {
+						Täringud.punktide_lisamine = 1;
+
+					} else {
 						põhitäringud.getChildren().clear();
 						Täringud.Veeretamine();
 						Täringud.Näitamine(põhitäringud);
-						Täringud.veeretus+=1;
+						Täringud.veeretus += 1;
 					}
-					
+
 				}
-				
+
 			}
-	    });
-	    
-	    Button lõpeta = new Button("LÕPETA MÄNG");
-	    lõpeta.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		});
+
+		Button lõpeta = new Button("LÕPETA MÄNG");
+		lõpeta.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent me) {
 				PeaMäng.hide();
 			}
-	    });
-	    nuppudeala.getChildren().addAll(veereta, lõpeta);
-	    
-	    põhiala.setTop(põhiülemine);
-	    põhiala.setCenter(põhikesk);
-	    põhiala.setBottom(põhitäringud);
-	    
-	    
-	    // MÄNGUALA
-	    BorderPane mänguala = new BorderPane();
-	    mänguala.setLeft(punktiala);
-	    mänguala.setBottom(nuppudeala);
-	    mänguala.setCenter(põhiala);
-		
+		});
+		nuppudeala.getChildren().addAll(veereta, lõpeta);
+
+		põhiala.setTop(põhiülemine);
+		põhiala.setCenter(põhikesk);
+		põhiala.setBottom(põhitäringud);
+
+		// MÄNGUALA
+		BorderPane mänguala = new BorderPane();
+		mänguala.setLeft(punktiala);
+		mänguala.setBottom(nuppudeala);
+		mänguala.setCenter(põhiala);
 
 		// MÄNGIJANIME EI SISESTATUD
 		final Stage mängijaaken = new Stage();
@@ -281,7 +269,6 @@ public class Yatzy extends Application {
 
 		Scene stseen1 = new Scene(mänguala, 535, 535, Color.GREEN);
 
-
 		PeaMäng.setTitle("Yatzy");
 
 		PeaMäng.setScene(stseen1);
@@ -291,23 +278,25 @@ public class Yatzy extends Application {
 		mängijaaken.show();
 		error.hide();
 	}
-	// MEETOD KONTROLLIMAKS, KAS KÕIK PUNKTIKOHAD ON TÄIDETUD. KUI JAH; SIIS LISAB PUNKTIDE LÕPPU KOGUSKOORI
+
+	// MEETOD KONTROLLIMAKS, KAS KÕIK PUNKTIKOHAD ON TÄIDETUD. KUI JAH; SIIS
+	// LISAB PUNKTIDE LÕPPU KOGUSKOORI
 	private void Lõpukontroll(final VBox punktiala) {
-		if(Täringud.korraloendur == 6) {
+		if (Täringud.korraloendur == 6) {
 			Text kokku = new Text("Kokku: " + Täringud.koguskoor);
 			punktiala.getChildren().add(kokku);
 		}
 	}
+
 	// Meetod koodi, mis nullib ja lisab juurde asju enne järgmist veeretamist
 	private void PealePunkte(final VBox punktiala) {
 		Täringud.punktide_lisamine = 0;
-		Täringud.veeretus=0;
-		Täringud.koguskoor+=Täringud.skoor;
-		Täringud.skoor=0;
-		Täringud.korraloendur+=1;
+		Täringud.veeretus = 0;
+		Täringud.koguskoor += Täringud.skoor;
+		Täringud.skoor = 0;
+		Täringud.korraloendur += 1;
 		Lõpukontroll(punktiala);
 	}
-	
 
 	public static void main(String[] args) {
 		launch(args);
