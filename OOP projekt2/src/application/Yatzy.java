@@ -9,13 +9,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -36,8 +33,6 @@ public class Yatzy extends Application {
 
 
 		
-		
-		
 		//PUNKTIDE ALA
 
 		final VBox punktiala = new VBox(40);
@@ -48,6 +43,8 @@ public class Yatzy extends Application {
 		
 	    punktiala.getChildren().addAll(punktid,ühed,kahed, kolmed,neljad,viied,kuued);
 	    punktiala.setStyle("-fx-background-color: ghostwhite");
+	    
+
 	    
 	    ühed.setOnMouseClicked(new EventHandler<MouseEvent>() {
 	    	public void handle(MouseEvent me) {
@@ -77,10 +74,7 @@ public class Yatzy extends Application {
 	    			Täringud.skoor=0;
 	    			Täringud.korraloendur+=1;
 	    			System.out.println(Täringud.koguskoor);
-	    			if (Täringud.korraloendur ==6) {
-	    				Text kokku = new Text("Kokku: " + Täringud.koguskoor);
-	    				punktiala.getChildren().add(kokku);
-	    			}
+	    			Lõpukontroll(punktiala);
 	    		}
 	    	}
 	    });
@@ -113,10 +107,7 @@ public class Yatzy extends Application {
 	    			Täringud.skoor=0;
 	    			System.out.println(Täringud.koguskoor);
 	    			Täringud.korraloendur+=1;
-	    			if (Täringud.korraloendur ==6) {
-	    				Text kokku = new Text("Kokku: " + Täringud.koguskoor);
-	    				punktiala.getChildren().add(kokku);
-	    			}
+	    			Lõpukontroll(punktiala);
 
 	    		}
 	    	}
@@ -150,10 +141,7 @@ public class Yatzy extends Application {
 	    			Täringud.skoor=0;
 	    			Täringud.korraloendur+=1;
 	    			System.out.println(Täringud.koguskoor);
-	    			if (Täringud.korraloendur ==6) {
-	    				Text kokku = new Text("Kokku: " + Täringud.koguskoor);
-	    				punktiala.getChildren().add(kokku);
-	    			}
+	    			Lõpukontroll(punktiala);
 
 	    		}
 	    	}
@@ -187,10 +175,7 @@ public class Yatzy extends Application {
 	    			Täringud.skoor=0;
 	    			Täringud.korraloendur+=1;
 	    			System.out.println(Täringud.koguskoor);
-	    			if (Täringud.korraloendur ==6) {
-	    				Text kokku = new Text("Kokku: " + Täringud.koguskoor);
-	    				punktiala.getChildren().add(kokku);
-	    			}
+	    			Lõpukontroll(punktiala);
 
 	    		}
 	    	}
@@ -224,10 +209,7 @@ public class Yatzy extends Application {
 	    			Täringud.skoor=0;
 	    			Täringud.korraloendur+=1;
 	    			System.out.println(Täringud.koguskoor);
-	    			if (Täringud.korraloendur ==6) {
-	    				Text kokku = new Text("Kokku: " + Täringud.koguskoor);
-	    				punktiala.getChildren().add(kokku);
-	    			}
+	    			Lõpukontroll(punktiala);
 
 	    		}
 	    	}
@@ -260,10 +242,7 @@ public class Yatzy extends Application {
 	    			Täringud.koguskoor+=Täringud.skoor;
 	    			Täringud.skoor=0;
 	    			Täringud.korraloendur+=1;
-	    			if (Täringud.korraloendur ==6) {
-	    				Text kokku = new Text("Kokku: " + Täringud.koguskoor);
-	    				punktiala.getChildren().add(kokku);
-	    			}
+	    			Lõpukontroll(punktiala);
 
 	    		}
 	    	}
@@ -430,6 +409,13 @@ public class Yatzy extends Application {
 		PeaMäng.hide();
 		mängijaaken.show();
 		error.hide();
+	}
+	// MEETOD KONTROLLIMAKS, KAS KÕIK PUNKTIKOHAD ON TÄIDETUD. KUI JAH; SIIS LISAB PUNKTIDE LÕPPU KOGUSKOORI
+	private void Lõpukontroll(final VBox punktiala) {
+		if(Täringud.korraloendur == 6) {
+			Text kokku = new Text("Kokku: " + Täringud.koguskoor);
+			punktiala.getChildren().add(kokku);
+		}
 	}
 
 	public static void main(String[] args) {
