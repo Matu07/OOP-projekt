@@ -28,11 +28,11 @@ public class Yatzy extends Application {
 	@Override
 	public void start(final Stage PeaMäng) {
 		final Text ühed = new Text("Ühed");
-		Text kahed = new Text("Kahed");
-		Text kolmed = new Text("Kolmed");
-		Text neljad = new Text("Neljad");
-		Text viied = new Text("Viied");
-		Text kuued = new Text("Kuued");
+		final Text kahed = new Text("Kahed");
+		final Text kolmed = new Text("Kolmed");
+		final Text neljad = new Text("Neljad");
+		final Text viied = new Text("Viied");
+		final Text kuued = new Text("Kuued");
 
 
 		
@@ -73,6 +73,159 @@ public class Yatzy extends Application {
 	    			punktiala.getChildren().add(1, ühedlõplik);
 	    			Täringud.punktide_lisamine = 0;
 	    			Täringud.veeretus=0;
+	    			Täringud.skoor=0;
+	    		}
+	    	}
+	    });
+	    
+	    kahed.setOnMouseClicked(new EventHandler<MouseEvent>() {
+	    	public void handle(MouseEvent me) {
+	    		if (Täringud.veeretus ==2) {
+	    			if (Täringud.täring1 == 2) {
+	    				Täringud.skoor += Täringud.täring1;
+	    			}
+	    			if (Täringud.täring2 == 2) {
+	    				Täringud.skoor += Täringud.täring2;
+	    			}
+	    			if (Täringud.täring3 == 2) {
+	    				Täringud.skoor += Täringud.täring3;
+	    			}
+	    			if (Täringud.täring4 == 2) {
+	    				Täringud.skoor += Täringud.täring4;
+	    			}
+	    			if (Täringud.täring5 == 2) {
+	    				Täringud.skoor += Täringud.täring5;
+	    			}
+	    			System.out.println("Prindib väärtused, mis peaksid olema samad täringutega : " + Täringud.täring1 + " " + Täringud.täring2 + " " + Täringud.täring3 + " " + Täringud.täring4 + " " + Täringud.täring5 );
+	    			punktiala.getChildren().remove(kahed);
+	    			Text kahedlõplik = new Text("Kahed: " + Täringud.skoor);
+	    			punktiala.getChildren().add(2, kahedlõplik);
+	    			Täringud.punktide_lisamine = 0;
+	    			Täringud.veeretus=0;
+	    			System.out.println(Täringud.veeretus);
+	    			System.out.println(Täringud.punktide_lisamine);
+	    			Täringud.skoor=0;
+
+	    		}
+	    	}
+	    });
+	    
+	    kolmed.setOnMouseClicked(new EventHandler<MouseEvent>() {
+	    	public void handle(MouseEvent me) {
+	    		if (Täringud.veeretus ==2) {
+	    			if (Täringud.täring1 == 3) {
+	    				Täringud.skoor += Täringud.täring1;
+	    			}
+	    			if (Täringud.täring2 == 3) {
+	    				Täringud.skoor += Täringud.täring2;
+	    			}
+	    			if (Täringud.täring3 == 3) {
+	    				Täringud.skoor += Täringud.täring3;
+	    			}
+	    			if (Täringud.täring4 == 3) {
+	    				Täringud.skoor += Täringud.täring4;
+	    			}
+	    			if (Täringud.täring5 == 3) {
+	    				Täringud.skoor += Täringud.täring5;
+	    			}
+	    			System.out.println("Prindib väärtused, mis peaksid olema samad täringutega : " + Täringud.täring1 + " " + Täringud.täring2 + " " + Täringud.täring3 + " " + Täringud.täring4 + " " + Täringud.täring5 );
+	    			punktiala.getChildren().remove(kolmed);
+	    			Text kolmedlõplik = new Text("Kolmed: " + Täringud.skoor);
+	    			punktiala.getChildren().add(3, kolmedlõplik);
+	    			Täringud.punktide_lisamine = 0;
+	    			Täringud.veeretus=0;
+	    			Täringud.skoor=0;
+
+	    		}
+	    	}
+	    });
+	    
+	    neljad.setOnMouseClicked(new EventHandler<MouseEvent>() {
+	    	public void handle(MouseEvent me) {
+	    		if (Täringud.veeretus ==2) {
+	    			if (Täringud.täring1 == 4) {
+	    				Täringud.skoor += Täringud.täring1;
+	    			}
+	    			if (Täringud.täring2 == 4) {
+	    				Täringud.skoor += Täringud.täring2;
+	    			}
+	    			if (Täringud.täring3 == 4) {
+	    				Täringud.skoor += Täringud.täring3;
+	    			}
+	    			if (Täringud.täring4 == 4) {
+	    				Täringud.skoor += Täringud.täring4;
+	    			}
+	    			if (Täringud.täring5 == 4) {
+	    				Täringud.skoor += Täringud.täring5;
+	    			}
+	    			System.out.println("Prindib väärtused, mis peaksid olema samad täringutega : " + Täringud.täring1 + " " + Täringud.täring2 + " " + Täringud.täring3 + " " + Täringud.täring4 + " " + Täringud.täring5 );
+	    			punktiala.getChildren().remove(neljad);
+	    			Text neljadlõplik = new Text("Neljad: " + Täringud.skoor);
+	    			punktiala.getChildren().add(4, neljadlõplik);
+	    			Täringud.punktide_lisamine = 0;
+	    			Täringud.veeretus=0;
+	    			Täringud.skoor=0;
+
+	    		}
+	    	}
+	    });
+	    
+	    viied.setOnMouseClicked(new EventHandler<MouseEvent>() {
+	    	public void handle(MouseEvent me) {
+	    		if (Täringud.veeretus ==2) {
+	    			if (Täringud.täring1 == 5) {
+	    				Täringud.skoor += Täringud.täring1;
+	    			}
+	    			if (Täringud.täring2 == 5) {
+	    				Täringud.skoor += Täringud.täring2;
+	    			}
+	    			if (Täringud.täring3 == 5) {
+	    				Täringud.skoor += Täringud.täring3;
+	    			}
+	    			if (Täringud.täring4 == 5) {
+	    				Täringud.skoor += Täringud.täring4;
+	    			}
+	    			if (Täringud.täring5 == 5) {
+	    				Täringud.skoor += Täringud.täring5;
+	    			}
+	    			System.out.println("Prindib väärtused, mis peaksid olema samad täringutega : " + Täringud.täring1 + " " + Täringud.täring2 + " " + Täringud.täring3 + " " + Täringud.täring4 + " " + Täringud.täring5 );
+	    			punktiala.getChildren().remove(viied);
+	    			Text viiedlõplik = new Text("Viied: " + Täringud.skoor);
+	    			punktiala.getChildren().add(5, viiedlõplik);
+	    			Täringud.punktide_lisamine = 0;
+	    			Täringud.veeretus=0;
+	    			Täringud.skoor=0;
+
+	    		}
+	    	}
+	    });
+	    
+	    kuued.setOnMouseClicked(new EventHandler<MouseEvent>() {
+	    	public void handle(MouseEvent me) {
+	    		if (Täringud.veeretus ==2) {
+	    			if (Täringud.täring1 == 6) {
+	    				Täringud.skoor += Täringud.täring1;
+	    			}
+	    			if (Täringud.täring2 == 6) {
+	    				Täringud.skoor += Täringud.täring2;
+	    			}
+	    			if (Täringud.täring3 == 6) {
+	    				Täringud.skoor += Täringud.täring3;
+	    			}
+	    			if (Täringud.täring4 == 6) {
+	    				Täringud.skoor += Täringud.täring4;
+	    			}
+	    			if (Täringud.täring5 == 6) {
+	    				Täringud.skoor += Täringud.täring5;
+	    			}
+	    			System.out.println("Prindib väärtused, mis peaksid olema samad täringutega : " + Täringud.täring1 + " " + Täringud.täring2 + " " + Täringud.täring3 + " " + Täringud.täring4 + " " + Täringud.täring5 );
+	    			punktiala.getChildren().remove(kuued);
+	    			Text kuuedlõplik = new Text("Kuued: " + Täringud.skoor);
+	    			punktiala.getChildren().add(6, kuuedlõplik);
+	    			Täringud.punktide_lisamine = 0;
+	    			Täringud.veeretus=0;
+	    			Täringud.skoor=0;
+
 	    		}
 	    	}
 	    });
@@ -115,8 +268,10 @@ public class Yatzy extends Application {
 	    Button veereta = new Button("VEERETA TÄRINGUID");
 	    veereta.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent me) {
+				System.out.println("JÕUDSIN SIIA");
 				//NÄITAB NUPUVAJUTUSE PEALE TÄRINGUID, ESIALGU JÄRJEST JA KORDUV VAJUTUS TEKITAB JAMA
 				if (Täringud.punktide_lisamine==0) {
+					System.out.println("JÕUDSIN SIIA KA");
 					if (Täringud.veeretus == 1) {
 						põhitäringud.getChildren().clear();
 						Täringud.Veeretamine();
@@ -131,6 +286,7 @@ public class Yatzy extends Application {
 						
 					}
 					else {
+						põhitäringud.getChildren().clear();
 						Täringud.Veeretamine();
 						Täringud.Näitamine(põhitäringud);
 						Täringud.veeretus+=1;
