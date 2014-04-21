@@ -5,8 +5,10 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -29,7 +31,6 @@ public class Yatzy extends Application {
 		final Text neljad = new Text("Neljad");
 		final Text viied = new Text("Viied");
 		final Text kuued = new Text("Kuued");
-		
 
 		// PUNKTIDE ALA
 
@@ -127,19 +128,23 @@ public class Yatzy extends Application {
 		põhiala.setPadding(new Insets(10));
 
 		// PÕHIALA ÜLEMINE TEKSTIOSA
-		HBox põhiülemine = new HBox();
+		VBox põhiülemine = new VBox();
 		põhiülemine.setPadding(new Insets(10));
+		põhiülemine.setSpacing(30);
 		Text yatzymäng = new Text("Yatzy mäng");
 		yatzymäng.setFont(Font.font("Ariel", 18));
 		yatzymäng.setUnderline(true);
 		Text eesmärk = new Text(
 				"\n\nMängu eesmärk on saada võimalikult palju\nettenähtud väärtusega täringuviskeid.");
-		põhiülemine.getChildren().addAll(yatzymäng, eesmärk);
 
 		// PÕHIALA KESKMINE MÄNGUOSA
+		Button veereta = new Button("VEERETA!");
 		final VBox põhikesk = new VBox();
 		põhikesk.setPadding(new Insets(10));
-		final Text vahetustekst = new Text("Vali, millist täringut soovid vahetada.");
+		final Text vahetustekst = new Text(
+				"Vali, millist täringut soovid vahetada.");
+		final Text valipunkt = new Text(
+				"Vajutage kohale, kuhu soovite oma punktid panna.");
 
 		// PÕHIALA ALUMINE TÄRINGUTEGA OSA
 		final HBox põhitäringud = new HBox();
@@ -149,59 +154,56 @@ public class Yatzy extends Application {
 		// NUPPUDE ALA
 		HBox nuppudeala = new HBox();
 		nuppudeala.setPadding(new Insets(10));
+		nuppudeala.setSpacing(15);
 		nuppudeala.setAlignment(Pos.CENTER);
 
-		Button vahetus1 = new Button("VAHETA 1.");
-		vahetus1.setOnMouseClicked(new EventHandler<MouseEvent>() {
-			public void handle(MouseEvent me) {
-				Täringud.vaheta1=1;
-			}
-		});
-		Button vahetus2 = new Button("VAHETA 2.");
-		vahetus1.setOnMouseClicked(new EventHandler<MouseEvent>() {
-			public void handle(MouseEvent me) {
-				Täringud.vaheta2=1;
-			}
-		});
-		Button vahetus3 = new Button("VAHETA 3.");
-		vahetus1.setOnMouseClicked(new EventHandler<MouseEvent>() {
-			public void handle(MouseEvent me) {
-				Täringud.vaheta3=1;
-			}
-		});
-		Button vahetus4 = new Button("VAHETA 4.");
-		vahetus1.setOnMouseClicked(new EventHandler<MouseEvent>() {
-			public void handle(MouseEvent me) {
-				Täringud.vaheta4=1;
-			}
-		});
-		Button vahetus5 = new Button("VAHETA 5.");
-		vahetus1.setOnMouseClicked(new EventHandler<MouseEvent>() {
-			public void handle(MouseEvent me) {
-				Täringud.vaheta5=1;
-			}
-		});
-		
-		Button veereta = new Button("VEERETA!");
+		final CheckBox vahetus1 = new CheckBox("VAHETA 1.");
+
+		final CheckBox vahetus2 = new CheckBox("VAHETA 2.");
+
+		final CheckBox vahetus3 = new CheckBox("VAHETA 3.");
+
+		final CheckBox vahetus4 = new CheckBox("VAHETA 4.");
+
+		final CheckBox vahetus5 = new CheckBox("VAHETA 5.");
+
+		Group vahetusnupud = new Group();
+		vahetusnupud.getChildren().addAll(vahetus1, vahetus2, vahetus3,
+				vahetus4, vahetus5);
+
 		veereta.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent me) {
 				// NÄITAB NUPUVAJUTUSE PEALE TÄRINGUID, ESIALGU JÄRJEST JA
 				// KORDUV VAJUTUS TEKITAB JAMA
 				if (Täringud.punktide_lisamine == 0) {
 					if (Täringud.veeretus == 1) {
+						põhikesk.getChildren().clear();
+						KasVaheta(vahetus1, vahetus2, vahetus3, vahetus4,
+								vahetus5);
+						põhikesk.getChildren().addAll(vahetustekst);
 						põhitäringud.getChildren().clear();
 						Täringud.Veeretamine();
 						Täringud.Näitamine(põhitäringud);
 						Täringud.veeretus += 1;
 					} else if (Täringud.veeretus == 2) {
+						KasVaheta(vahetus1, vahetus2, vahetus3, vahetus4,
+								vahetus5);
+						põhikesk.getChildren().clear();
 						põhitäringud.getChildren().clear();
+						põhikesk.getChildren().add(valipunkt);
 						Täringud.Veeretamine();
 						Täringud.Näitamine(põhitäringud);
 						Täringud.punktide_lisamine = 1;
 
 					} else {
-						põhikesk.getChildren().addAll(vahetustekst);
+						vahetus1.setSelected(true);
+						vahetus2.setSelected(true);
+						vahetus3.setSelected(true);
+						vahetus4.setSelected(true);
+						vahetus5.setSelected(true);
+						põhikesk.getChildren().clear();
 						põhitäringud.getChildren().clear();
+						põhikesk.getChildren().addAll(vahetustekst);
 						Täringud.Veeretamine();
 						Täringud.Näitamine(põhitäringud);
 						Täringud.veeretus += 1;
@@ -210,6 +212,17 @@ public class Yatzy extends Application {
 				}
 
 			}
+
+			private void KasVaheta(final CheckBox vahetus1,
+					final CheckBox vahetus2, final CheckBox vahetus3,
+					final CheckBox vahetus4, final CheckBox vahetus5) {
+				Täringud.vaheta1 = vahetus1.isSelected();
+				Täringud.vaheta2 = vahetus2.isSelected();
+				Täringud.vaheta3 = vahetus3.isSelected();
+				Täringud.vaheta4 = vahetus4.isSelected();
+				Täringud.vaheta5 = vahetus5.isSelected();
+			}
+
 		});
 
 		Button lõpeta = new Button("VÄLJU");
@@ -218,7 +231,9 @@ public class Yatzy extends Application {
 				PeaMäng.hide();
 			}
 		});
-		nuppudeala.getChildren().addAll(veereta, lõpeta, vahetus1, vahetus2, vahetus3, vahetus4, vahetus5);
+		nuppudeala.getChildren().addAll(vahetus1, vahetus2, vahetus3, vahetus4,
+				vahetus5);
+		põhiülemine.getChildren().addAll(yatzymäng, eesmärk, veereta, lõpeta);
 
 		põhiala.setTop(põhiülemine);
 		põhiala.setCenter(põhikesk);
@@ -299,7 +314,7 @@ public class Yatzy extends Application {
 		PeaMäng.setTitle("Yatzy");
 
 		PeaMäng.setScene(stseen1);
-		PeaMäng.setResizable(true);
+		PeaMäng.setResizable(false);
 
 		PeaMäng.hide();
 		mängijaaken.show();
@@ -317,13 +332,15 @@ public class Yatzy extends Application {
 		Täringud.koguskoor += Täringud.skoor;
 		Täringud.skoor = 0;
 		Täringud.korraloendur += 1;
-		Täringud.vaheta1 = 0;
-		Täringud.vaheta2 = 0;
-		Täringud.vaheta3 = 0;
-		Täringud.vaheta4 = 0;
-		Täringud.vaheta5 = 0;
+		Täringud.vaheta1 = true;
+		Täringud.vaheta2 = true;
+		Täringud.vaheta3 = true;
+		Täringud.vaheta4 = true;
+		Täringud.vaheta5 = true;
+
 		if (Täringud.korraloendur == 6) {
-			Text kokku = new Text("Mängija: " + "\n" + mängijanimi + "\nskoor kokku:\n" + Täringud.koguskoor);
+			Text kokku = new Text("Mängija: " + "\n" + mängijanimi
+					+ "\nskoor kokku:\n" + Täringud.koguskoor);
 			punktiala.getChildren().add(kokku);
 		}
 	}

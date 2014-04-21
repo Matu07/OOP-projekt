@@ -1,6 +1,5 @@
 package application;
 
-
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
@@ -16,11 +15,11 @@ public class Täringud extends Numbrid {
 	static int skoor;
 	static int korraloendur = 0;
 	static int koguskoor;
-	static int vaheta1;
-	static int vaheta2;
-	static int vaheta3;
-	static int vaheta4;
-	static int vaheta5;
+	static boolean vaheta1 = true;
+	static boolean vaheta2 = true;
+	static boolean vaheta3 = true;
+	static boolean vaheta4 = true;
+	static boolean vaheta5 = true;
 
 	static int Täring(int arv) {
 		if (arv == 1) {
@@ -48,19 +47,19 @@ public class Täringud extends Numbrid {
 	static int täring5;
 
 	static void Veeretamine() {
-		if (vaheta1 == 0) {
+		if (vaheta1 == true) {
 			Täring(1);
 		}
-		if (vaheta2 == 0) {
+		if (vaheta2 == true) {
 			Täring(2);
 		}
-		if (vaheta3 == 0) {
+		if (vaheta3 == true) {
 			Täring(3);
 		}
-		if (vaheta4 == 0) {
+		if (vaheta4 == true) {
 			Täring(4);
 		}
-		if (vaheta5 == 0) {
+		if (vaheta5 == true) {
 			Täring(5);
 		}
 	}
@@ -83,23 +82,23 @@ public class Täringud extends Numbrid {
 		Abitsükkel(iv5);
 		o.getChildren().addAll(iv1, iv2, iv3, iv4, iv5);
 	}
-	static void LeiaArv(int arv) {
-	if (Täringud.täring1 == arv) {
-		Täringud.skoor += Täringud.täring1;
-	}
-	if (Täringud.täring2 == arv) {
-		Täringud.skoor += Täringud.täring2;
-	}
-	if (Täringud.täring3 == arv) {
-		Täringud.skoor += Täringud.täring3;
-	}
-	if (Täringud.täring4 == arv) {
-		Täringud.skoor += Täringud.täring4;
-	}
-	if (Täringud.täring5 == arv) {
-		Täringud.skoor += Täringud.täring5;
-	}
-	
-	
 
-}}
+	static void LeiaArv(int arv) {
+		if (Täringud.täring1 == arv) {
+			Täringud.skoor += Täringud.täring1;
+		}
+		if (Täringud.täring2 == arv) {
+			Täringud.skoor += Täringud.täring2;
+		}
+		if (Täringud.täring3 == arv) {
+			Täringud.skoor += Täringud.täring3;
+		}
+		if (Täringud.täring4 == arv) {
+			Täringud.skoor += Täringud.täring4;
+		}
+		if (Täringud.täring5 == arv) {
+			Täringud.skoor += Täringud.täring5;
+		}
+
+	}
+}
