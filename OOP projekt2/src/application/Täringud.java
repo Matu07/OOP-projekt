@@ -16,6 +16,11 @@ public class Täringud extends Numbrid {
 	static int skoor;
 	static int korraloendur = 0;
 	static int koguskoor;
+	static int vaheta1;
+	static int vaheta2;
+	static int vaheta3;
+	static int vaheta4;
+	static int vaheta5;
 
 	static int Täring(int arv) {
 		if (arv == 1) {
@@ -43,8 +48,20 @@ public class Täringud extends Numbrid {
 	static int täring5;
 
 	static void Veeretamine() {
-		for (int i = 0; i < 6; i++) {
-			Täring(i);
+		if (vaheta1 == 0) {
+			Täring(1);
+		}
+		if (vaheta2 == 0) {
+			Täring(2);
+		}
+		if (vaheta3 == 0) {
+			Täring(3);
+		}
+		if (vaheta4 == 0) {
+			Täring(4);
+		}
+		if (vaheta5 == 0) {
+			Täring(5);
 		}
 	}
 

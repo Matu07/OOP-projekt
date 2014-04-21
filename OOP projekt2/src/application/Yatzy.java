@@ -137,10 +137,9 @@ public class Yatzy extends Application {
 		põhiülemine.getChildren().addAll(yatzymäng, eesmärk);
 
 		// PÕHIALA KESKMINE MÄNGUOSA
-		VBox põhikesk = new VBox();
+		final VBox põhikesk = new VBox();
 		põhikesk.setPadding(new Insets(10));
-		Text ajutine1 = new Text("Siin hakkab jooksma mänguinfo");
-		põhikesk.getChildren().addAll(ajutine1);
+		final Text vahetustekst = new Text("Vali, millist täringut soovid vahetada.");
 
 		// PÕHIALA ALUMINE TÄRINGUTEGA OSA
 		final HBox põhitäringud = new HBox();
@@ -170,6 +169,7 @@ public class Yatzy extends Application {
 						Täringud.punktide_lisamine = 1;
 
 					} else {
+						põhikesk.getChildren().addAll(vahetustekst);
 						põhitäringud.getChildren().clear();
 						Täringud.Veeretamine();
 						Täringud.Näitamine(põhitäringud);
@@ -286,6 +286,11 @@ public class Yatzy extends Application {
 		Täringud.koguskoor += Täringud.skoor;
 		Täringud.skoor = 0;
 		Täringud.korraloendur += 1;
+		Täringud.vaheta1 = 0;
+		Täringud.vaheta2 = 0;
+		Täringud.vaheta3 = 0;
+		Täringud.vaheta4 = 0;
+		Täringud.vaheta5 = 0;
 		if (Täringud.korraloendur == 6) {
 			Text kokku = new Text("Mängija: " + "\n" + mängijanimi + "\nskoor kokku:\n" + Täringud.koguskoor);
 			punktiala.getChildren().add(kokku);
