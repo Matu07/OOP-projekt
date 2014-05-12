@@ -3,6 +3,8 @@ package application;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -50,6 +52,7 @@ public class Täringud extends Numbrid {
 	static int täring4;
 	static int täring5;
 	static File file = new File("manguseis.txt");
+	static File file2 = new File("tulemused.txt");
 
 	static void Veeretamine() {
 		if (vaheta1 == true) {
@@ -67,25 +70,26 @@ public class Täringud extends Numbrid {
 		if (vaheta5 == true) {
 			Täring(5);
 		}
-		//FAILI KIRJUTAMISE OSA
-		String andmed = String.valueOf(täring1) + ";" + String.valueOf(täring2) + ";" + String.valueOf(täring3)
-				+ ";" + String.valueOf(täring4) + ";" + String.valueOf(täring5);
+
+	}
+
+	static void KirjutaFaili() {
+		String andmed = String.valueOf(Yatzy.mängijanimi) + ";"
+				+ String.valueOf(koguskoor);
 		try {
-		    FileOutputStream fop = new FileOutputStream(file, true);
- 
-			if (!file.exists()) {
-				file.createNewFile();
+			FileOutputStream fop = new FileOutputStream(file2, true);
+
+			if (!file2.exists()) {
+				file2.createNewFile();
 			}
- 
 			byte[] contentInBytes = andmed.getBytes();
 			fop.write(contentInBytes);
 			fop.write(System.getProperty("line.separator").getBytes());
 			fop.flush();
 			fop.close();
- 
 		} catch (IOException e) {
 			e.printStackTrace();
-		} 
+		}
 	}
 
 	static void Abitsükkel(ImageView o) {
@@ -108,21 +112,13 @@ public class Täringud extends Numbrid {
 	}
 
 	static void LeiaArv(int arv) {
-		if (Täringud.täring1 == arv) {
-			Täringud.skoor += Täringud.täring1;
+		ArrayList<Integer> täringud = new ArrayList<Integer>();
+		täringud.addAll(Arrays.asList(täring1, täring2, täring3, täring4,
+				täring5));
+		for (int i = 0; i < täringud.size(); i++) {
+			if (arv == täringud.get(i)) {
+				skoor += täringud.get(i);
+			}
 		}
-		if (Täringud.täring2 == arv) {
-			Täringud.skoor += Täringud.täring2;
-		}
-		if (Täringud.täring3 == arv) {
-			Täringud.skoor += Täringud.täring3;
-		}
-		if (Täringud.täring4 == arv) {
-			Täringud.skoor += Täringud.täring4;
-		}
-		if (Täringud.täring5 == arv) {
-			Täringud.skoor += Täringud.täring5;
-		}
-
 	}
 }

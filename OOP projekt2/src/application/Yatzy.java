@@ -38,6 +38,9 @@ public class Yatzy extends Application {
 		final Text kuued = new Text("Kuued");
 
 		// PUNKTIDE ALA
+		final Button tulemused = new Button("TULEMUSED");
+		final VBox põhiülemine = new VBox();
+		final Button veereta = new Button("VEERETA!");
 
 		final VBox punktiala = new VBox(40);
 		punktiala.setPadding(new Insets(10));
@@ -56,7 +59,7 @@ public class Yatzy extends Application {
 					punktiala.getChildren().remove(ühed);
 					Text ühedlõplik = new Text("Ühed: " + Täringud.skoor);
 					punktiala.getChildren().add(1, ühedlõplik);
-					PealePunkte(punktiala);
+					PealePunkte(punktiala, põhiülemine, veereta, tulemused);
 
 				}
 			}
@@ -69,7 +72,7 @@ public class Yatzy extends Application {
 					punktiala.getChildren().remove(kahed);
 					Text kahedlõplik = new Text("Kahed: " + Täringud.skoor);
 					punktiala.getChildren().add(2, kahedlõplik);
-					PealePunkte(punktiala);
+					PealePunkte(punktiala, põhiülemine, veereta, tulemused);
 
 				}
 			}
@@ -82,7 +85,7 @@ public class Yatzy extends Application {
 					punktiala.getChildren().remove(kolmed);
 					Text kolmedlõplik = new Text("Kolmed: " + Täringud.skoor);
 					punktiala.getChildren().add(3, kolmedlõplik);
-					PealePunkte(punktiala);
+					PealePunkte(punktiala, põhiülemine, veereta, tulemused);
 
 				}
 			}
@@ -95,7 +98,7 @@ public class Yatzy extends Application {
 					punktiala.getChildren().remove(neljad);
 					Text neljadlõplik = new Text("Neljad: " + Täringud.skoor);
 					punktiala.getChildren().add(4, neljadlõplik);
-					PealePunkte(punktiala);
+					PealePunkte(punktiala, põhiülemine, veereta, tulemused);
 
 				}
 			}
@@ -109,7 +112,7 @@ public class Yatzy extends Application {
 					punktiala.getChildren().remove(viied);
 					Text viiedlõplik = new Text("Viied: " + Täringud.skoor);
 					punktiala.getChildren().add(5, viiedlõplik);
-					PealePunkte(punktiala);
+					PealePunkte(punktiala, põhiülemine, veereta, tulemused);
 
 				}
 			}
@@ -122,7 +125,7 @@ public class Yatzy extends Application {
 					punktiala.getChildren().remove(kuued);
 					Text kuuedlõplik = new Text("Kuued: " + Täringud.skoor);
 					punktiala.getChildren().add(6, kuuedlõplik);
-					PealePunkte(punktiala);
+					PealePunkte(punktiala, põhiülemine, veereta, tulemused);
 
 				}
 			}
@@ -133,7 +136,6 @@ public class Yatzy extends Application {
 		põhiala.setPadding(new Insets(10));
 
 		// PÕHIALA ÜLEMINE TEKSTIOSA
-		VBox põhiülemine = new VBox();
 		põhiülemine.setPadding(new Insets(10));
 		põhiülemine.setSpacing(30);
 		Text yatzymäng = new Text("Yatzy mäng");
@@ -143,7 +145,6 @@ public class Yatzy extends Application {
 				"\n\nMängu eesmärk on saada võimalikult palju\nettenähtud väärtusega täringuviskeid.");
 
 		// PÕHIALA KESKMINE MÄNGUOSA
-		Button veereta = new Button("VEERETA!");
 		final VBox põhikesk = new VBox();
 		põhikesk.setPadding(new Insets(10));
 		final Text vahetustekst = new Text(
@@ -235,46 +236,10 @@ public class Yatzy extends Application {
 				PeaMäng.hide();
 			}
 		});
-		
-		//VAJA TEHA!
-		//*Vajutamisel loetakse failist eelmise käigu seis ja antakse täringutele vastavad väärtused.
-		//*Saab vajutada ühe korra, kui rohkem, siis tekib vastav erind.
-		Button käiktagasi = new Button("KÄIK TAGASI");
-		käiktagasi.setOnMouseClicked(new EventHandler<MouseEvent>() {
-			public void handle(MouseEvent me) {
-				try {
-					//Panin praegu absolute pathi, sest ei saanud suhtelist tööle. Võiks ära muuta.
-					InputStream fis=new FileInputStream("C:/Users/Martin/git/OOP--projekt/OOP projekt2/manguseis.txt");
-					BufferedReader br = new BufferedReader(new InputStreamReader((fis), "UTF8"));
-					while (true) {
-						String viimane = null, rida;
-						while ((rida = br.readLine()) != null) {
-							
-					        viimane = rida;
-					    }
-						
-						String[] numbrid = viimane.split(";");
-						//vaja siduda päris väärtustega
-						int täring1 = Integer.parseInt(numbrid[0]);
-						int täring2 = Integer.parseInt(numbrid[1]);
-						int täring3 = Integer.parseInt(numbrid[2]);
-						int täring4 = Integer.parseInt(numbrid[3]);
-						int täring5 = Integer.parseInt(numbrid[4]); 
-						if (rida == null) break;
-			        }
-			        br.close();
-		        } 
-				catch (Exception e) {
-		            System.out.println("Erind: " + e);
-		        }
 
-			}
-		});
-		
-		
 		nuppudeala.getChildren().addAll(vahetus1, vahetus2, vahetus3, vahetus4,
 				vahetus5);
-		põhiülemine.getChildren().addAll(yatzymäng, eesmärk, veereta, käiktagasi, lõpeta);
+		põhiülemine.getChildren().addAll(yatzymäng, eesmärk, veereta, lõpeta);
 
 		põhiala.setTop(põhiülemine);
 		põhiala.setCenter(põhikesk);
@@ -287,6 +252,7 @@ public class Yatzy extends Application {
 		mänguala.setCenter(põhiala);
 
 		// MÄNGIJANIME EI SISESTATUD
+
 		final Stage mängijaaken = new Stage();
 
 		Label tekst = new Label("TE EI SISESTANUD NIME!");
@@ -314,6 +280,60 @@ public class Yatzy extends Application {
 		error.setScene(errorstseen);
 
 		error.setTitle("VIGA: EI SISESTATUD NIME!");
+		// TULEMUSTE AKEN
+
+		final Stage tulemusteaken = new Stage();
+		Button sulge = new Button("SULGE MÄNG");
+
+		sulge.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event) {
+				tulemusteaken.hide();
+			}
+		});
+
+		final VBox tulemusbox = new VBox(10);
+		tulemusbox.setAlignment(Pos.CENTER);
+
+		FlowPane tulemuspane = new FlowPane(10, 10);
+		tulemuspane.setAlignment(Pos.TOP_CENTER);
+		tulemusbox.getChildren().add(tulemuspane);
+		tulemuspane.getChildren().add(sulge);
+
+		tulemused.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event) {
+				PeaMäng.hide();
+				tulemusteaken.show();
+				try {
+					InputStream fis = new FileInputStream("tulemused.txt");
+					BufferedReader br = new BufferedReader(
+							new InputStreamReader((fis), "UTF8"));
+					while (true) {
+						String viimane = null, rida;
+						while ((rida = br.readLine()) != null) {
+
+							viimane = rida;
+							String[] numbrid = viimane.split(";");
+							Label uus = new Label(numbrid[0] + ": "
+									+ numbrid[1]);
+							tulemusbox.getChildren().add(uus);
+						}
+						if (rida == null)
+							break;
+					}
+					br.close();
+				} catch (Exception e) {
+					System.out.println("Erind: " + e);
+				}
+				Täringud.KirjutaFaili();
+				Label sinutulemus = new Label("Praegune mäng - " + mängijanimi
+						+ ": " + Täringud.koguskoor);
+				tulemusbox.getChildren().add(sinutulemus);
+			}
+		});
+
+		Scene tulemusstseen = new Scene(tulemusbox, 535, 535, Color.GHOSTWHITE);
+		tulemusteaken.setScene(tulemusstseen);
+		tulemusteaken.setTitle("EELMISTE MÄNGUDE TULEMUSED");
 
 		// MÄNGIJANIME AKEN
 
@@ -325,12 +345,15 @@ public class Yatzy extends Application {
 		sisenemängu.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent me) {
 				mängijanimi = nimi.getText();
-				if (mängijanimi.equals("Sisesta oma nimi")) {
+				try {
+					if (NimeErind.MängijaNimeKontroll(mängijanimi) == false) {
+						mängijaaken.hide();
+						PeaMäng.show();
+					}
+				} catch (NimeErind o) {
+					System.out.println("Erind:" + o);
 					mängijaaken.hide();
 					error.show();
-				} else {
-					mängijaaken.hide();
-					PeaMäng.show();
 				}
 
 			}
@@ -364,10 +387,11 @@ public class Yatzy extends Application {
 
 	// MEETOD KONTROLLIMAKS, KAS KÕIK PUNKTIKOHAD ON TÄIDETUD. KUI JAH; SIIS
 	// LISAB PUNKTIDE LÕPPU KOGUSKOORI
-	String mängijanimi;
+	static String mängijanimi;
 
 	// Meetod koodi, mis nullib ja lisab juurde asju enne järgmist veeretamist
-	private void PealePunkte(final VBox punktiala) {
+	private void PealePunkte(final VBox punktiala, final VBox põhiülemine,
+			Button veereta, Button tulemused) {
 		Täringud.punktide_lisamine = 0;
 		Täringud.veeretus = 0;
 		Täringud.koguskoor += Täringud.skoor;
@@ -383,6 +407,9 @@ public class Yatzy extends Application {
 			Text kokku = new Text("Mängija: " + "\n" + mängijanimi
 					+ "\nskoor kokku:\n" + Täringud.koguskoor);
 			punktiala.getChildren().add(kokku);
+			põhiülemine.getChildren().remove(veereta);
+			põhiülemine.getChildren().add(tulemused);
+
 		}
 	}
 

@@ -1,0 +1,2 @@
+TestMängija;60
+Silver;13
