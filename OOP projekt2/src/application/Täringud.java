@@ -1,5 +1,9 @@
 package application;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
@@ -45,6 +49,7 @@ public class Täringud extends Numbrid {
 	static int täring3;
 	static int täring4;
 	static int täring5;
+	static File file = new File("manguseis.txt");
 
 	static void Veeretamine() {
 		if (vaheta1 == true) {
@@ -62,6 +67,24 @@ public class Täringud extends Numbrid {
 		if (vaheta5 == true) {
 			Täring(5);
 		}
+		//FAILI KIRJUTAMISE OSA
+		String andmed = String.valueOf(täring1) + ";" + String.valueOf(täring2) + ";" + String.valueOf(täring3)
+				+ ";" + String.valueOf(täring4) + ";" + String.valueOf(täring5)+"\n";
+		try {
+		    FileOutputStream fop = new FileOutputStream(file);
+ 
+			if (!file.exists()) {
+				file.createNewFile();
+			}
+ 
+			byte[] contentInBytes = andmed.getBytes();
+			fop.write(contentInBytes);
+			fop.flush();
+			fop.close();
+ 
+		} catch (IOException e) {
+			e.printStackTrace();
+		} 
 	}
 
 	static void Abitsükkel(ImageView o) {

@@ -173,8 +173,7 @@ public class Yatzy extends Application {
 
 		veereta.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent me) {
-				// NÄITAB NUPUVAJUTUSE PEALE TÄRINGUID, ESIALGU JÄRJEST JA
-				// KORDUV VAJUTUS TEKITAB JAMA
+				// NÄITAB NUPUVAJUTUSE PEALE TÄRINGUID
 				if (Täringud.punktide_lisamine == 0) {
 					if (Täringud.veeretus == 1) {
 						põhikesk.getChildren().clear();
