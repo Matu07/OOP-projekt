@@ -1,5 +1,10 @@
 package application;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -230,9 +235,45 @@ public class Yatzy extends Application {
 				PeaMäng.hide();
 			}
 		});
+		
+		//VAJA TEHA!
+		//*Vajutamisel loetakse failist eelmise käigu seis ja antakse täringutele vastavad väärtused.
+		//*Saab vajutada ühe korra, kui rohkem, siis tekib vastav erind.
+		Button käiktagasi = new Button("KÄIK TAGASI");
+		käiktagasi.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent me) {
+				try {
+					//Panin praegu absolute pathi, sest ei saanud suhtelist tööle. Võiks ära muuta.
+					InputStream fis=new FileInputStream("C:/Users/Martin/git/OOP--projekt/OOP projekt2/manguseis.txt");
+					BufferedReader br = new BufferedReader(new InputStreamReader((fis), "UTF8"));
+					while (true) {
+						String viimane = null, rida;
+						while ((rida = br.readLine()) != null) {
+					        viimane = rida;
+					    }
+						String[] numbrid = viimane.split(";");
+						if (numbrid == null) break;
+						//vaja siduda päris väärtustega
+						int täring1 = Integer.parseInt(numbrid[0]);
+						int täring2 = Integer.parseInt(numbrid[1]);
+						int täring3 = Integer.parseInt(numbrid[2]);
+						int täring4 = Integer.parseInt(numbrid[3]);
+						int täring5 = Integer.parseInt(numbrid[4].trim()); 
+						System.out.print(numbrid); //testimiseks
+			        }
+			        br.close();
+		        } 
+				catch (Exception e) {
+		            System.out.println("Erind: " + e);
+		        }
+
+			}
+		});
+		
+		
 		nuppudeala.getChildren().addAll(vahetus1, vahetus2, vahetus3, vahetus4,
 				vahetus5);
-		põhiülemine.getChildren().addAll(yatzymäng, eesmärk, veereta, lõpeta);
+		põhiülemine.getChildren().addAll(yatzymäng, eesmärk, veereta, käiktagasi, lõpeta);
 
 		põhiala.setTop(põhiülemine);
 		põhiala.setCenter(põhikesk);

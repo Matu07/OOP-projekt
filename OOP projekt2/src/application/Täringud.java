@@ -79,6 +79,7 @@ public class Täringud extends Numbrid {
  
 			byte[] contentInBytes = andmed.getBytes();
 			fop.write(contentInBytes);
+			fop.write(System.getProperty("line.separator").getBytes());
 			fop.flush();
 			fop.close();
  
