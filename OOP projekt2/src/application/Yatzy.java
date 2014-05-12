@@ -36,20 +36,22 @@ public class Yatzy extends Application {
 		final Text neljad = new Text("Neljad");
 		final Text viied = new Text("Viied");
 		final Text kuued = new Text("Kuued");
+		final Text boonus = new Text("Boonus");
+		
 
 		// PUNKTIDE ALA
 		final Button tulemused = new Button("TULEMUSED");
 		final VBox põhiülemine = new VBox();
 		final Button veereta = new Button("VEERETA!");
 
-		final VBox punktiala = new VBox(40);
+		final VBox punktiala = new VBox(30);
 		punktiala.setPadding(new Insets(10));
 		Text punktid = new Text("Punktid");
 		punktid.setFont(Font.font("Ariel", 20));
 		punktid.setUnderline(true);
 
 		punktiala.getChildren().addAll(punktid, ühed, kahed, kolmed, neljad,
-				viied, kuued);
+				viied, kuued,boonus);
 		punktiala.setStyle("-fx-background-color: ghostwhite");
 
 		ühed.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -59,7 +61,8 @@ public class Yatzy extends Application {
 					punktiala.getChildren().remove(ühed);
 					Text ühedlõplik = new Text("Ühed: " + Täringud.skoor);
 					punktiala.getChildren().add(1, ühedlõplik);
-					PealePunkte(punktiala, põhiülemine, veereta, tulemused);
+					Täringud.boonusloendur+= Täringud.skoor;
+					PealePunkte(punktiala, põhiülemine, veereta, tulemused, boonus);
 
 				}
 			}
@@ -72,8 +75,8 @@ public class Yatzy extends Application {
 					punktiala.getChildren().remove(kahed);
 					Text kahedlõplik = new Text("Kahed: " + Täringud.skoor);
 					punktiala.getChildren().add(2, kahedlõplik);
-					PealePunkte(punktiala, põhiülemine, veereta, tulemused);
-
+					Täringud.boonusloendur+= Täringud.skoor;
+					PealePunkte(punktiala, põhiülemine, veereta, tulemused, boonus);
 				}
 			}
 		});
@@ -85,7 +88,8 @@ public class Yatzy extends Application {
 					punktiala.getChildren().remove(kolmed);
 					Text kolmedlõplik = new Text("Kolmed: " + Täringud.skoor);
 					punktiala.getChildren().add(3, kolmedlõplik);
-					PealePunkte(punktiala, põhiülemine, veereta, tulemused);
+					Täringud.boonusloendur+= Täringud.skoor;
+					PealePunkte(punktiala, põhiülemine, veereta, tulemused, boonus);
 
 				}
 			}
@@ -98,7 +102,8 @@ public class Yatzy extends Application {
 					punktiala.getChildren().remove(neljad);
 					Text neljadlõplik = new Text("Neljad: " + Täringud.skoor);
 					punktiala.getChildren().add(4, neljadlõplik);
-					PealePunkte(punktiala, põhiülemine, veereta, tulemused);
+					Täringud.boonusloendur+= Täringud.skoor;
+					PealePunkte(punktiala, põhiülemine, veereta, tulemused, boonus);
 
 				}
 			}
@@ -112,7 +117,8 @@ public class Yatzy extends Application {
 					punktiala.getChildren().remove(viied);
 					Text viiedlõplik = new Text("Viied: " + Täringud.skoor);
 					punktiala.getChildren().add(5, viiedlõplik);
-					PealePunkte(punktiala, põhiülemine, veereta, tulemused);
+					Täringud.boonusloendur+= Täringud.skoor;
+					PealePunkte(punktiala, põhiülemine, veereta, tulemused, boonus);
 
 				}
 			}
@@ -125,11 +131,13 @@ public class Yatzy extends Application {
 					punktiala.getChildren().remove(kuued);
 					Text kuuedlõplik = new Text("Kuued: " + Täringud.skoor);
 					punktiala.getChildren().add(6, kuuedlõplik);
-					PealePunkte(punktiala, põhiülemine, veereta, tulemused);
+					Täringud.boonusloendur+= Täringud.skoor;
+					PealePunkte(punktiala, põhiülemine, veereta, tulemused, boonus);
 
 				}
 			}
 		});
+		
 
 		// PÕHIALA
 		final BorderPane põhiala = new BorderPane();
@@ -280,7 +288,11 @@ public class Yatzy extends Application {
 		error.setScene(errorstseen);
 
 		error.setTitle("VIGA: EI SISESTATUD NIME!");
+		
+		
+		
 		// TULEMUSTE AKEN
+		
 
 		final Stage tulemusteaken = new Stage();
 		Button sulge = new Button("SULGE MÄNG");
@@ -391,7 +403,7 @@ public class Yatzy extends Application {
 
 	// Meetod koodi, mis nullib ja lisab juurde asju enne järgmist veeretamist
 	private void PealePunkte(final VBox punktiala, final VBox põhiülemine,
-			Button veereta, Button tulemused) {
+			Button veereta, Button tulemused, Text boonus) {
 		Täringud.punktide_lisamine = 0;
 		Täringud.veeretus = 0;
 		Täringud.koguskoor += Täringud.skoor;
@@ -404,12 +416,23 @@ public class Yatzy extends Application {
 		Täringud.vaheta5 = true;
 
 		if (Täringud.korraloendur == 6) {
+			boonusekontroll(punktiala, boonus);
 			Text kokku = new Text("Mängija: " + "\n" + mängijanimi
 					+ "\nskoor kokku:\n" + Täringud.koguskoor);
 			punktiala.getChildren().add(kokku);
 			põhiülemine.getChildren().remove(veereta);
 			põhiülemine.getChildren().add(tulemused);
 
+		}
+	}
+
+	public void boonusekontroll(final VBox punktiala, Text boonus) {
+		if (Täringud.boonusloendur > 62) {
+			Täringud.koguskoor += 50;
+			punktiala.getChildren().remove(boonus);
+			Text boonuslõplik = new Text("Boonus: " + 50);
+			punktiala.getChildren().add(7, boonuslõplik);
+			
 		}
 	}
 

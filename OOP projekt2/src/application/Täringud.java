@@ -51,26 +51,18 @@ public class Täringud extends Numbrid {
 	static int täring3;
 	static int täring4;
 	static int täring5;
-	static File file = new File("manguseis.txt");
 	static File file2 = new File("tulemused.txt");
+	static int boonusloendur = 50;
 
 	static void Veeretamine() {
-		if (vaheta1 == true) {
-			Täring(1);
+		ArrayList<Boolean> lühem = new ArrayList<Boolean>();
+		lühem.addAll(Arrays.asList(vaheta1, vaheta2, vaheta3, vaheta4, vaheta5));
+		for (int i = 0; i<lühem.size(); i++) {
+			if (lühem.get(i) == true) {
+				Täring(i+1);
+			}
 		}
-		if (vaheta2 == true) {
-			Täring(2);
-		}
-		if (vaheta3 == true) {
-			Täring(3);
-		}
-		if (vaheta4 == true) {
-			Täring(4);
-		}
-		if (vaheta5 == true) {
-			Täring(5);
-		}
-
+		
 	}
 
 	static void KirjutaFaili() {
