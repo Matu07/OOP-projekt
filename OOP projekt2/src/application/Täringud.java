@@ -69,7 +69,7 @@ public class Täringud extends Numbrid {
 		}
 		//FAILI KIRJUTAMISE OSA
 		String andmed = String.valueOf(täring1) + ";" + String.valueOf(täring2) + ";" + String.valueOf(täring3)
-				+ ";" + String.valueOf(täring4) + ";" + String.valueOf(täring5)+" ";
+				+ ";" + String.valueOf(täring4) + ";" + String.valueOf(täring5);
 		try {
 		    FileOutputStream fop = new FileOutputStream(file, true);
  

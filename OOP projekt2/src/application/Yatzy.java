@@ -258,7 +258,7 @@ public class Yatzy extends Application {
 						int täring2 = Integer.parseInt(numbrid[1]);
 						int täring3 = Integer.parseInt(numbrid[2]);
 						int täring4 = Integer.parseInt(numbrid[3]);
-						int täring5 = Integer.parseInt(numbrid[4].trim()); 
+						int täring5 = Integer.parseInt(numbrid[4]); 
 						System.out.print(numbrid); //testimiseks
 			        }
 			        br.close();
