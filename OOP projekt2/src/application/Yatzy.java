@@ -249,17 +249,18 @@ public class Yatzy extends Application {
 					while (true) {
 						String viimane = null, rida;
 						while ((rida = br.readLine()) != null) {
+							
 					        viimane = rida;
 					    }
+						
 						String[] numbrid = viimane.split(";");
-						if (numbrid == null) break;
 						//vaja siduda p‰ris v‰‰rtustega
 						int t‰ring1 = Integer.parseInt(numbrid[0]);
 						int t‰ring2 = Integer.parseInt(numbrid[1]);
 						int t‰ring3 = Integer.parseInt(numbrid[2]);
 						int t‰ring4 = Integer.parseInt(numbrid[3]);
 						int t‰ring5 = Integer.parseInt(numbrid[4]); 
-						System.out.print(numbrid); //testimiseks
+						if (rida == null) break;
 			        }
 			        br.close();
 		        } 
