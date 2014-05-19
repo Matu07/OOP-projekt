@@ -16,3 +16,5 @@ Kirke;113
 Jalk;53
 Jalg;17
 karl;72
+gtrgr;113
+Testija;122

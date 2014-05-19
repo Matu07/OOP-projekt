@@ -20,4 +20,11 @@
 		<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>OOP_veeb</name>
+			<type>2</type>
+			<location>C:/Users/Martin/Documents/Kool/OOP/OOP_veeb</location>
+		</link>
+	</linkedResources>
 </projectDescription>
